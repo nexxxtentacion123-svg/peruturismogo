@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Explora el Perú, descubre lugares, completa rutas y construye tu bitácora turística." />
+    <meta name="theme-color" content="#123c32" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="apple-touch-icon" href="assets/kuntur-avatar.png" />
+
+    <!-- Meta Tags Open Graph (Redes Sociales) -->
+    <meta property="og:title" content="PerúTurismo GO — Tu bitácora de exploración" />
+    <meta property="og:description" content="Recorre el Perú como en un juego: descubre lugares reales, completa rutas temáticas y gana medallas mientras viajas." />
+    <meta property="og:type" content="website" />
+
+    <title>PerúTurismo GO — Tu bitácora de exploración</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <noscript>
+        <div style="padding:1rem;background:#123c32;color:white;text-align:center;">
+            PerúTurismo GO necesita JavaScript para mostrar el mapa y registrar tus descubrimientos.
+        </div>
+    </noscript>
+
+    <header class="header">
+        <h1 class="brand-logo">
+            <img class="brand-avatar" src="assets/kuntur-avatar.png" alt="Kuntur, el Cóndor Explorador" />
+            <span class="brand-wordmark">
+                <span class="brand-name">PerúTurismo <b class="brand-badge-go">GO</b></span>
+                <span class="brand-tagline">Descubre. Conecta. Explora.</span>
+            </span>
+        </h1>
+        <div class="header-acciones">
+            <div id="usuario-sesion" class="usuario-sesion hidden">
+                <i class="fas fa-user-circle"></i><span id="usuario-email"></span>
+                <button type="button" id="btn-cerrar-sesion">Salir</button>
+            </div>
+            <button type="button" id="btn-abrir-auth" class="btn-auth-header">
+                <i class="fas fa-right-to-bracket"></i><span>Guardar progreso</span>
+            </button>
+            <div class="stats">
+                <span class="stat-pill"><i class="fas fa-flag-checkered"></i> Visitados: <span class="numero" id="contador-visitas">0</span></span>
+                <span class="stat-pill"><i class="fas fa-walking"></i> Total: <span class="numero" id="total-lugares">0</span></span>
+                <span class="stat-pill"><i class="fas fa-star"></i> Favoritos: <span class="numero" id="contador-favoritos">0</span></span>
+                <span class="stat-pill"><i class="fas fa-bolt"></i> Pts: <span class="numero" id="contador-puntos">0</span></span>
+                <span class="stat-nivel"><i class="fas fa-medal"></i> <span id="nivel-nombre">Recién llegado</span></span>
+            </div>
+            <button type="button" id="btn-tema" class="btn-tema" title="Cambiar a modo oscuro" aria-label="Cambiar tema">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </header>
+    <div class="header-ribete" aria-hidden="true"></div>
+
+    <div id="auth-overlay" class="auth-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="auth-titulo">
+        <section class="auth-card" aria-labelledby="auth-titulo">
+            <button type="button" id="btn-cerrar-auth" class="auth-close" aria-label="Cerrar inicio de sesión">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="auth-mascot-wrap">
+                <img class="auth-mascot" src="assets/kuntur-mascot-transparent.png" alt="Kuntur te acompaña en tu expedición" />
+            </div>
+            <p class="bienvenida-kicker">Tu bitácora del Perú</p>
+            <h2 id="auth-titulo">Inicia tu expedición</h2>
+            <p class="auth-lead">Guarda tus visitas, favoritos y logros en tu cuenta para continuar desde cualquier dispositivo.</p>
+            <div id="auth-error" class="auth-error hidden" role="alert"></div>
+            <form id="form-auth" novalidate>
+                <label for="auth-email">Correo electrónico</label>
+                <input id="auth-email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="tu@correo.com">
+                <div id="auth-username-wrap" class="hidden">
+                    <label for="auth-username">Username</label>
+                    <input id="auth-username" name="username" type="text" autocomplete="nickname" minlength="3" maxlength="24" pattern="[A-Za-z0-9._-]+" placeholder="ej. viajero_andino">
+                    <small class="auth-hint">3–24 caracteres: letras, números, punto, guion o guion bajo.</small>
+                </div>
+                <label for="auth-password">Contraseña</label>
+                <input id="auth-password" name="password" type="password" autocomplete="current-password" required minlength="8" maxlength="128" placeholder="Mínimo 8 caracteres">
+                <div id="auth-confirm-wrap" class="hidden">
+                    <label for="auth-confirm">Repite tu contraseña</label>
+                    <input id="auth-confirm" name="confirmPassword" type="password" autocomplete="new-password" minlength="8" maxlength="128">
+                </div>
+                <button id="btn-auth-submit" class="btn-empezar" type="submit">Iniciar sesión</button>
+            </form>
+            <button id="btn-cambiar-auth" class="auth-switch" type="button">Crear una cuenta</button>
+            <button id="btn-explorar-invitado" class="auth-guest" type="button">Seguir explorando sin cuenta</button>
+            <small class="auth-privacy"><i class="fas fa-lock"></i> Tu contraseña se almacena protegida. Nunca se guarda en el navegador.</small>
+        </section>
+    </div>
+
+    <div class="contenedor">
+
+        <div class="mapa-wrapper">
+            <div id="mapa"></div>
+            <div id="panel-cercanos" class="panel-cercanos hidden" aria-live="polite">
+                <div class="cercanos-kicker"><i class="fas fa-radar"></i> Radar de exploración</div>
+                <div id="cercanos-contenido">Activa tu ubicación para detectar lugares cercanos.</div>
+            </div>
+            <!-- Banner flotante con información de la ruta activa -->
+            <div id="banner-ruta-activa" class="banner-ruta-activa hidden">
+                <div class="banner-ruta-info">
+                    <i class="fas fa-route banner-ruta-icono"></i>
+                    <div>
+                        <div id="banner-ruta-nombre" class="banner-ruta-titulo">Ruta activa</div>
+                        <div class="banner-ruta-progreso" id="banner-ruta-progreso">0/0 visitados</div>
+                    </div>
+                </div>
+                <div class="banner-ruta-acciones">
+                    <button type="button" id="btn-centrar-ruta" class="btn-banner-ruta" title="Centrar ruta en el mapa">
+                        <i class="fas fa-compress-arrows-alt"></i> <span>Centrar</span>
+                    </button>
+                    <button type="button" id="btn-ocultar-ruta" class="btn-banner-ruta btn-banner-cerrar" title="Ocultar del mapa">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="vista-movil" aria-label="Cambiar vista">
+                <button type="button" class="vista-movil-btn activo" data-vista="mapa" aria-pressed="true">
+                    <i class="fas fa-map"></i> Mapa
+                </button>
+                <button type="button" class="vista-movil-btn" data-vista="lista" aria-pressed="false">
+                    <i class="fas fa-list"></i> Lista
+                </button>
+            </div>
+
+            <div class="tabs">
+                <button class="tab-btn activo" data-tab="lugares">
+                    <i class="fas fa-list"></i> Lugares
+                </button>
+                <button class="tab-btn" data-tab="rutas">
+                    <i class="fas fa-route"></i> Rutas <span class="tab-badge" id="badge-rutas">20</span>
+                </button>
+                <button class="tab-btn" data-tab="colecciones">
+                    <i class="fas fa-star"></i> Mis Visitas
+                </button>
+            </div>
+
+            <div class="tab-content" id="tab-lugares">
+
+                <!-- ===== BUSCADOR ===== -->
+                <div class="buscador-container">
+                    <div class="buscador-wrapper">
+                        <i class="fas fa-search buscador-icono"></i>
+                        <input type="text" id="buscador-input" placeholder="Buscar por nombre, región o tag..." class="buscador-input" />
+                        <button id="buscador-limpiar" class="buscador-limpiar" style="display:none;">
+                            <i class="fas fa-times-circle"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <button type="button" class="btn-toggle-filtros-movil" id="btn-toggle-filtros-movil"
+                        aria-expanded="true" aria-controls="filtros-rapidos filtros-avanzados">
+                    <i class="fas fa-sliders" aria-hidden="true"></i>
+                    <span>Opciones de búsqueda</span>
+                    <strong aria-hidden="true">−</strong>
+                </button>
+
+                <!-- ===== FILTROS RÁPIDOS (ESTADOS) ===== -->
+                <div class="filtros-rapidos" id="filtros-rapidos">
+                    <button class="filtro-rapido-btn activo" data-rapido="todos"><i class="fas fa-globe"></i> Todos</button>
+                    <button class="filtro-rapido-btn" data-rapido="joyas"><i class="fas fa-gem"></i> Joyas Ocultas</button>
+                    <button class="filtro-rapido-btn" data-rapido="favoritos"><i class="fas fa-star"></i> Favoritos</button>
+                    <button class="filtro-rapido-btn" data-rapido="visitados"><i class="fas fa-check-circle"></i> Visitados</button>
+                    <button class="filtro-rapido-btn" data-rapido="pendientes"><i class="fas fa-compass"></i> Pendientes</button>
+                </div>
+
+                <details class="filtros-avanzados">
+                    <summary><i class="fas fa-sliders"></i> Filtrar y ordenar</summary>
+                    <!-- ===== FILTRO POR REGIÓN ===== -->
+                    <div class="region-container">
+                        <span class="ordenar-label"><i class="fas fa-map"></i> Región:</span>
+                        <select id="filtro-region" class="ordenar-select">
+                            <option value="todas">🌎 Todas las regiones</option>
+                        </select>
+                    </div>
+
+                    <!-- ===== ORDENAR ===== -->
+                    <div class="ordenar-container">
+                        <span class="ordenar-label"><i class="fas fa-sort"></i> Ordenar:</span>
+                        <select id="ordenar-select" class="ordenar-select">
+                            <option value="nombre">📝 Nombre (A-Z)</option>
+                            <option value="nombre-desc">📝 Nombre (Z-A)</option>
+                            <option value="categoria">🏷️ Categoría</option>
+                            <option value="visitados">✅ Visitados primero</option>
+                            <option value="no-visitados">⭕ No visitados primero</option>
+                            <option value="cercania" id="opcion-cercania">📍 Más cercanos</option>
+                        </select>
+                    </div>
+
+                    <div class="filtros" id="filtros">
+                        <button class="filtro-btn activo" data-filtro="todos">Todos</button>
+                    </div>
+
+                    <div class="filtros-tipo" id="filtros-tipo">
+                        <!-- Se genera con JavaScript -->
+                    </div>
+                </details>
+
+                <div id="resultados-info" class="resultados-info">
+                    Mostrando <span id="resultados-count">0</span> de <strong id="total-disponibles">0</strong> lugares disponibles
+                </div>
+
+                <div class="lista-lugares" id="lista-lugares">
+                    <div class="loading"><i class="fas fa-spinner fa-spin"></i> Cargando...</div>
+                </div>
+            </div>
+
+            <div class="tab-content hidden" id="tab-rutas">
+                <div class="rutas-intro">
+                    <p><i class="fas fa-compass"></i> Rutas temáticas seleccionadas por el Perú. Conecta destinos y gana puntos.</p>
+                </div>
+
+                <!-- Buscador de rutas -->
+                <div class="buscador-container" style="margin-bottom:8px;">
+                    <div class="buscador-wrapper">
+                        <i class="fas fa-search buscador-icono"></i>
+                        <input type="text" id="buscador-rutas-input" placeholder="Buscar ruta (ej. Colca, Desierto, Selva)..." class="buscador-input" />
+                        <button id="buscador-rutas-limpiar" class="buscador-limpiar" style="display:none;">
+                            <i class="fas fa-times-circle"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Filtros por dificultad y estado de rutas -->
+                <div class="filtros-rutas" id="filtros-rutas">
+                    <button class="filtro-ruta-btn activo" data-filtro-ruta="todas">Todas</button>
+                    <button class="filtro-ruta-btn" data-filtro-ruta="completadas">🎉 Completadas</button>
+                    <button class="filtro-ruta-btn" data-filtro-ruta="pendientes">⏳ En progreso</button>
+                    <button class="filtro-ruta-btn" data-filtro-ruta="facil">🟢 Fáciles</button>
+                    <button class="filtro-ruta-btn" data-filtro-ruta="moderada">🟡 Moderadas</button>
+                    <button class="filtro-ruta-btn" data-filtro-ruta="avanzada">🔴 Avanzadas</button>
+                </div>
+
+                <div id="lista-rutas">
+                    <div class="loading"><i class="fas fa-spinner fa-spin"></i> Cargando rutas...</div>
+                </div>
+            </div>
+
+            <div class="tab-content hidden" id="tab-colecciones">
+
+                <!-- ===== PROGRESO GENERAL ===== -->
+                <div class="progreso-general" id="progreso-general">
+                    <div class="progreso-texto">
+                        <span><i class="fas fa-chart-line"></i> Tu progreso por Perú</span>
+                        <strong id="progreso-porcentaje">0%</strong>
+                    </div>
+                    <div class="progreso-barra">
+                        <div class="progreso-relleno" id="progreso-relleno"></div>
+                    </div>
+                </div>
+
+                <!-- ===== LOGROS ===== -->
+                <div class="logros-container">
+                    <div class="logros-titulo"><i class="fas fa-trophy"></i> Logros</div>
+                    <div class="logros-grid" id="lista-logros"></div>
+                </div>
+
+                <div id="colecciones">
+                    <div class="vacio">
+                        <i class="fas fa-sad-tear" style="font-size:2rem;display:block;margin-bottom:8px;"></i>
+                        Aún no has visitado ningún lugar.<br>¡Explora Perú y haz check-in!
+                    </div>
+                </div>
+
+                <!-- ===== FAVORITOS ===== -->
+                <div class="favoritos-container" id="seccion-favoritos">
+                    <div class="logros-titulo"><i class="fas fa-star" style="color:#f1c40f;"></i> Mis favoritos</div>
+                    <div id="lista-favoritos"></div>
+                </div>
+
+                <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:10px;">
+                    <button class="btn-compartir" id="btn-compartir">
+                        <i class="fas fa-share-alt"></i> Compartir mi progreso
+                    </button>
+                    <button class="btn-exportar" id="btn-exportar">
+                        <i class="fas fa-download"></i> Exportar
+                    </button>
+                    <button class="btn-exportar" id="btn-importar">
+                        <i class="fas fa-upload"></i> Importar
+                    </button>
+                    <input type="file" id="input-importar" accept=".json" style="display:none;">
+                    <button class="btn-reiniciar" id="btn-reiniciar">
+                        <i class="fas fa-undo-alt"></i> Reiniciar visita
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===== MODAL DE DETALLE DE LUGAR ===== -->
+    <div class="modal-overlay hidden" id="modal-lugar">
+        <div class="modal-content">
+            <button class="modal-cerrar" id="modal-cerrar"><i class="fas fa-times"></i></button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- ===== BIENVENIDA GAMIFICADA ===== -->
+    <div class="bienvenida-overlay hidden" id="overlay-bienvenida">
+        <div class="bienvenida-card">
+            <p class="bienvenida-kicker">Aventura turística por el Perú</p>
+            <h2>🎒 ¡Bienvenido a PerúTurismo GO!</h2>
+            <p class="bienvenida-lead">
+                Recorre el país como en un juego: descubre lugares reales, completa rutas y sube de nivel mientras viajas.
+            </p>
+            <ul class="bienvenida-lista">
+                <li>📍 Activa tu ubicación para registrar visitas <strong>in situ</strong> y ganar más puntos</li>
+                <li>🗺️ Completa rutas temáticas y dibújalas en el mapa</li>
+                <li>💎 Encuentra Joyas Ocultas y desbloquea logros</li>
+                <li>⭐ Guarda favoritos y exporta tu progreso</li>
+            </ul>
+            <button type="button" class="btn-empezar" id="btn-empezar">¡Empezar a explorar!</button>
+        </div>
+    </div>
+
+    <!-- Scripts CDN y Aplicación -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

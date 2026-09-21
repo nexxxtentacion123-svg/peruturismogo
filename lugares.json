@@ -1,0 +1,1676 @@
+[
+  {
+    "id": 1,
+    "nombre": "Plaza Mayor de Lima",
+    "region": "Lima",
+    "lat": -12.0456,
+    "lng": -77.0303,
+    "categoria": "Historia",
+    "tiposExplorador": [
+      "Cultural"
+    ],
+    "descripcion": "Corazón del centro histórico de Lima, rodeada de edificios coloniales. Aquí se fundó la ciudad en 1535.",
+    "horario": "24 horas",
+    "precio": "Gratis",
+    "como_llegar": "Metropolitano: Estación Jirón de la Unión",
+    "transportePublico": "Metropolitano Línea C / A",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🇵🇪 Auténtico",
+      "🏛️ Patrimonio"
+    ],
+    "tipLocal": "Visita al atardecer para ver la iluminación dorada en los balcones coloniales"
+  },
+  {
+    "id": 2,
+    "nombre": "Catedral de Lima",
+    "region": "Lima",
+    "lat": -12.0463,
+    "lng": -77.0298,
+    "categoria": "Historia",
+    "tiposExplorador": [
+      "Cultural"
+    ],
+    "descripcion": "Imponente catedral neoclásica del siglo XVI, guarda los restos de Francisco Pizarro.",
+    "horario": "Lun-Sab 9:00-17:00, Dom 10:00-13:00",
+    "precio": "S/ 10.00",
+    "como_llegar": "Metropolitano: Estación Jirón de la Unión",
+    "transportePublico": "Metropolitano Línea C / A",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🏛️ Patrimonio",
+      "📜 Historia"
+    ],
+    "tipLocal": "Entra temprano para evitar las multitudes y visitar las criptas"
+  },
+  {
+    "id": 3,
+    "nombre": "Palacio de Gobierno",
+    "region": "Lima",
+    "lat": -12.0455,
+    "lng": -77.0311,
+    "categoria": "Historia",
+    "tiposExplorador": [
+      "Cultural"
+    ],
+    "descripcion": "Sede del poder ejecutivo, conocido por su fachada neobarroca y el cambio de guardia.",
+    "horario": "Visitas guiadas con reserva previa",
+    "precio": "Gratis",
+    "como_llegar": "Metropolitano: Estación Jirón de la Unión",
+    "transportePublico": "Metropolitano Línea C / A",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🏛️ Patrimonio"
+    ],
+    "tipLocal": "El cambio de guardia es a las 11:45 am los domingos frente a la plaza"
+  },
+  {
+    "id": 4,
+    "nombre": "Museo Larco",
+    "region": "Lima",
+    "lat": -12.0775,
+    "lng": -77.0735,
+    "categoria": "Museo",
+    "tiposExplorador": [
+      "Cultural"
+    ],
+    "descripcion": "Tesoro arqueológico en una casona virreinal con la mejor colección de cerámica precolombina.",
+    "horario": "Lun-Dom 9:00-22:00",
+    "precio": "S/ 35.00 (adultos), S/ 17.00 (estudiantes)",
+    "como_llegar": "Taxi desde Miraflores (20 min) o corredor azul hasta Av. Bolívar",
+    "transportePublico": "Taxi / Corredor Azul",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🏛️ Museo",
+      "📜 Historia"
+    ],
+    "tipLocal": "La visita nocturna es mágica; cena en el restaurante de sus jardines"
+  },
+  {
+    "id": 5,
+    "nombre": "Parque Kennedy",
+    "region": "Lima",
+    "lat": -12.1203,
+    "lng": -77.03,
+    "categoria": "Parque",
+    "tiposExplorador": [
+      "Urbano",
+      "Naturaleza"
+    ],
+    "descripcion": "El parque más famoso de Miraflores, lleno de vida, artistas urbanos, ferias y felinos.",
+    "horario": "24 horas",
+    "precio": "Gratis",
+    "como_llegar": "Metropolitano: Estación Ricardo Palma",
+    "transportePublico": "Metropolitano / Corredor Azul",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🌳 Parque",
+      "🐱 Gatos",
+      "🎨 Arte urbano"
+    ],
+    "tipLocal": "Los fines de semana por la tarde hay música en vivo y baile en el anfiteatro"
+  },
+  {
+    "id": 6,
+    "nombre": "Malecón de Miraflores",
+    "region": "Lima",
+    "lat": -12.1253,
+    "lng": -77.0315,
+    "categoria": "Parque",
+    "tiposExplorador": [
+      "Naturaleza",
+      "Urbano"
+    ],
+    "descripcion": "Acantilado con vistas espectaculares al Océano Pacífico, ideal para atardeceres y parapente.",
+    "horario": "24 horas",
+    "precio": "Gratis",
+    "como_llegar": "Caminando desde Parque Kennedy o taxi",
+    "transportePublico": "Corredor Azul",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🌅 Atardecer",
+      "🏃 Deporte",
+      "🌊 Vista al mar"
+    ],
+    "tipLocal": "El mejor punto para fotografías es el mirador del Parque del Amor"
+  },
+  {
+    "id": 7,
+    "nombre": "Huaca Pucllana",
+    "region": "Lima",
+    "lat": -12.1102,
+    "lng": -77.0335,
+    "categoria": "Arqueológico",
+    "tiposExplorador": [
+      "Cultural",
+      "Urbano"
+    ],
+    "descripcion": "Pirámide de adobes preincaica de la Cultura Lima en pleno corazón urbano de Miraflores.",
+    "horario": "Mié-Lun 9:00-16:15, Recorridos nocturnos: 19:00-22:00",
+    "precio": "S/ 15.00 (diurno), S/ 17.00 (nocturno)",
+    "como_llegar": "Metropolitano: Estación Angamos + 10 min caminata",
+    "transportePublico": "Metropolitano / Taxi",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🏛️ Arqueológico",
+      "🌙 Visita Nocturna"
+    ],
+    "tipLocal": "La iluminación nocturna resalta la arquitectura de adobes 'tipo librero'"
+  },
+  {
+    "id": 8,
+    "nombre": "Puente de los Suspiros",
+    "region": "Lima",
+    "lat": -12.1485,
+    "lng": -77.023,
+    "categoria": "Cultura",
+    "tiposExplorador": [
+      "Urbano",
+      "Cultural"
+    ],
+    "descripcion": "Icono romántico de Barranco. Cuenta la tradición que si lo cruzas aguantando la respiración se te cumple un deseo.",
+    "horario": "24 horas",
+    "precio": "Gratis",
+    "como_llegar": "Metropolitano: Estación Bulevar",
+    "transportePublico": "Metropolitano Línea C",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "💕 Romántico",
+      "🎨 Bohemio",
+      "🌅 Atardecer"
+    ],
+    "tipLocal": "Baja por la Bajada de Baños desde el puente directo hacia la playa"
+  },
+  {
+    "id": 9,
+    "nombre": "Jirón de la Unión",
+    "region": "Lima",
+    "lat": -12.046,
+    "lng": -77.0285,
+    "categoria": "Cultura",
+    "tiposExplorador": [
+      "Urbano",
+      "Cultural"
+    ],
+    "descripcion": "Paseo peatonal histórico que une la Plaza Mayor con la Plaza San Martín.",
+    "horario": "24 horas",
+    "precio": "Gratis",
+    "como_llegar": "Metropolitano: Estación Jirón de la Unión",
+    "transportePublico": "Metropolitano Línea A / C",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🛍️ Compras",
+      "🏛️ Histórico"
+    ],
+    "tipLocal": "Prueba los churros tradicionales cerca de la Iglesia de la Merced"
+  },
+  {
+    "id": 10,
+    "nombre": "Mercado N° 1 de Surquillo",
+    "region": "Lima",
+    "lat": -12.0973,
+    "lng": -77.01,
+    "categoria": "Gastronomía",
+    "tiposExplorador": [
+      "Gastronómico",
+      "Urbano"
+    ],
+    "descripcion": "Mercado popular célebre por su frescura marítima, frutas exóticas y huariques cevicheros.",
+    "horario": "Lun-Dom 7:00-16:00",
+    "precio": "Gratis (ingreso)",
+    "como_llegar": "Metropolitano: Estación Ricardo Palma",
+    "transportePublico": "Metropolitano",
+    "esJoyaOculta": true,
+    "etiquetas": [
+      "🍜 Comida Local",
+      "🛒 Mercado",
+      "💎 Joya Oculta"
+    ],
+    "tipLocal": "Visita los puestos de ceviche del interior al mediodía para pescado del día"
+  },
+  {
+    "id": 11,
+    "nombre": "Santuario Arqueológico de Pachacamac",
+    "region": "Lima",
+    "lat": -12.2583,
+    "lng": -76.9,
+    "categoria": "Arqueológico",
+    "tiposExplorador": [
+      "Cultural",
+      "Naturaleza"
+    ],
+    "descripcion": "El oráculo preincaico más importante de la costa central peruana frente al mar.",
+    "horario": "Mar-Sáb 9:00-17:00, Dom 9:00-16:00",
+    "precio": "S/ 15.00",
+    "como_llegar": "Buses hacia Lurín desde la Panamericana Sur o Tour",
+    "transportePublico": "Bus Interurbano",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🏛️ Arqueológico",
+      "🌿 Naturaleza"
+    ],
+    "tipLocal": "Lleva sombrero y cortavientos; el museo de sitio tiene piezas extraordinarias"
+  },
+  {
+    "id": 12,
+    "nombre": "Machu Picchu",
+    "region": "Cusco",
+    "lat": -13.1631,
+    "lng": -72.545,
+    "categoria": "Arqueológico",
+    "tiposExplorador": [
+      "Cultural",
+      "Naturaleza"
+    ],
+    "descripcion": "Santuario histórico e ícono del Imperio Inca. Una de las 7 Maravillas del Mundo Moderno.",
+    "horario": "6:00-17:30 (según turno reservado)",
+    "precio": "S/ 152.00 (Extranjeros), S/ 64.00 (Nacionales)",
+    "como_llegar": "Tren a Aguas Calientes + Bus Consettur",
+    "transportePublico": "Tren + Bus",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🏛️ Patrimonio",
+      "🌄 Maravilla"
+    ],
+    "tipLocal": "Reserva tus boletos oficiales de ingreso con mínimo 2 a 3 meses de anticipación"
+  },
+  {
+    "id": 13,
+    "nombre": "Centro Histórico de Cusco",
+    "region": "Cusco",
+    "lat": -13.5167,
+    "lng": -71.9781,
+    "categoria": "Historia",
+    "tiposExplorador": [
+      "Cultural",
+      "Urbano"
+    ],
+    "descripcion": "Capital histórica del Perú donde cimientos de piedra incas se fusionan con casonas españolas.",
+    "horario": "24 horas",
+    "precio": "Gratis",
+    "como_llegar": "A pie desde cualquier hotel céntrico",
+    "transportePublico": "Caminando",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🏛️ Patrimonio",
+      "📜 Historia"
+    ],
+    "tipLocal": "Camina por el barrio de San Blas para ver talleres artesanales"
+  },
+  {
+    "id": 14,
+    "nombre": "Valle Sagrado de los Incas",
+    "region": "Cusco",
+    "lat": -13.3417,
+    "lng": -72.0583,
+    "categoria": "Arqueológico",
+    "tiposExplorador": [
+      "Cultural",
+      "Naturaleza"
+    ],
+    "descripcion": "Vallefértil repleto de ciudadelas agrícolas como Pisac, Ollantaytambo y las salineras de Maras.",
+    "horario": "Sitios arqueológicos: 8:00-17:00",
+    "precio": "Boleto Turístico del Cusco (S/ 70 - S/ 130)",
+    "como_llegar": "Colectivos desde Calle Pavitos (Cusco) o Tour",
+    "transportePublico": "Minivan / Colectivo",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🏛️ Patrimonio",
+      "🌄 Paisaje"
+    ],
+    "tipLocal": "Duerme en Ollantaytambo para aclimatarte mejor que en Cusco"
+  },
+  {
+    "id": 15,
+    "nombre": "Sacsayhuamán",
+    "region": "Cusco",
+    "lat": -13.5095,
+    "lng": -71.9825,
+    "categoria": "Arqueológico",
+    "tiposExplorador": [
+      "Cultural",
+      "Naturaleza"
+    ],
+    "descripcion": "Fortaleza ceremonial megalítica con megalitos pulidos que superan las 100 toneladas.",
+    "horario": "7:00-17:30",
+    "precio": "Incluido en Boleto Turístico",
+    "como_llegar": "Caminando 30 min en subida desde Plaza de Armas o Taxi",
+    "transportePublico": "Bus Local / Taxi",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🏛️ Arqueológico",
+      "🌄 Vista"
+    ],
+    "tipLocal": "Sube en taxi y realiza la bajada caminando hacia Cusco disfrutando la vista panorámica"
+  },
+  {
+    "id": 16,
+    "nombre": "Qorikancha (Templo del Sol)",
+    "region": "Cusco",
+    "lat": -13.52,
+    "lng": -71.975,
+    "categoria": "Arqueológico",
+    "tiposExplorador": [
+      "Cultural"
+    ],
+    "descripcion": "Templo Inca sagrado cuyos muros estuvieron recubiertos en oro, base del Convento de Santo Domingo.",
+    "horario": "Lun-Sáb 8:30-17:30, Dom 14:00-17:00",
+    "precio": "S/ 15.00",
+    "como_llegar": "Caminando 5 minutos desde la Plaza de Armas",
+    "transportePublico": "Caminando",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🏛️ Patrimonio",
+      "📜 Historia"
+    ],
+    "tipLocal": "Observa la precisión antisísmica de la mampostería incaica en las salas interiores"
+  },
+  {
+    "id": 17,
+    "nombre": "Montaña de 7 Colores (Vinicunca)",
+    "region": "Cusco",
+    "lat": -13.8608,
+    "lng": -71.6064,
+    "categoria": "Naturaleza",
+    "tiposExplorador": [
+      "Naturaleza",
+      "Aventura"
+    ],
+    "descripcion": "Atractivo geológico natural a más de 5,000 msnm coloreado por minerales sedimentarios.",
+    "horario": "5:00-15:00",
+    "precio": "S/ 25.00 (Entrada comunal)",
+    "como_llegar": "Tour organizado desde Cusco (3h carro + 1.5h caminata)",
+    "transportePublico": "Tour Operador",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🌄 Paisaje",
+      "🥾 Trekking"
+    ],
+    "tipLocal": "Obligatorio realizar mínimo 2 días de aclimatación previa en Cusco"
+  },
+  {
+    "id": 18,
+    "nombre": "Monasterio de Santa Catalina",
+    "region": "Arequipa",
+    "lat": -16.3986,
+    "lng": -71.5375,
+    "categoria": "Historia",
+    "tiposExplorador": [
+      "Cultural",
+      "Urbano"
+    ],
+    "descripcion": "Ciudadela de clausura de 20,000 m² construida en sillar blanco y azul, activa desde 1579.",
+    "horario": "Lun-Dom 9:00-18:00",
+    "precio": "S/ 45.00",
+    "como_llegar": "Caminando 3 cuadras desde la Plaza de Armas de Arequipa",
+    "transportePublico": "Caminando",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🏛️ Patrimonio",
+      "🎨 Arquitectura"
+    ],
+    "tipLocal": "Toma un guía oficial a la entrada para entender la historia de las novicias"
+  },
+  {
+    "id": 19,
+    "nombre": "Plaza de Armas de Arequipa",
+    "region": "Arequipa",
+    "lat": -16.3989,
+    "lng": -71.5373,
+    "categoria": "Historia",
+    "tiposExplorador": [
+      "Cultural",
+      "Urbano"
+    ],
+    "descripcion": "Plaza neoclásica rodeada de arquerías de sillar volcánico y fondo imponente del volcán Misti.",
+    "horario": "24 horas",
+    "precio": "Gratis",
+    "como_llegar": "Centro histórico de la ciudad",
+    "transportePublico": "Caminando",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🏛️ Patrimonio",
+      "🌄 Vista"
+    ],
+    "tipLocal": "Sube a los balcones del segundo piso de los portales para tomar un queso helado al atardecer"
+  },
+  {
+    "id": 20,
+    "nombre": "Volcán Misti",
+    "region": "Arequipa",
+    "lat": -16.2947,
+    "lng": -71.4094,
+    "categoria": "Naturaleza",
+    "tiposExplorador": [
+      "Naturaleza",
+      "Aventura"
+    ],
+    "descripcion": "Emblemático estratovolcán de 5,822 msnm que resguarda la Ciudad Blanca.",
+    "horario": "Acceso libre (Rutas de ascenso recomendadas en temporada seca)",
+    "precio": "Gratis (Tours especializados de ascenso cobran S/ 300+)",
+    "como_llegar": "Vehículo 4x4 hasta campamento base + ascenso a pie",
+    "transportePublico": "Tour de Alta Montaña",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🌄 Montaña",
+      "🥾 Trekking"
+    ],
+    "tipLocal": "Solo recomendado para montañistas experimentados con equipo térmico adecuado"
+  },
+  {
+    "id": 21,
+    "nombre": "Cañón del Colca",
+    "region": "Arequipa",
+    "lat": -15.6225,
+    "lng": -72.0233,
+    "categoria": "Naturaleza",
+    "tiposExplorador": [
+      "Naturaleza",
+      "Aventura"
+    ],
+    "descripcion": "Uno de los cañones más profundos del planeta, famoso por el avistamiento del Cóndor Andino.",
+    "horario": "24 horas (Mirador Cruz del Cóndor mejor de 7:00 a 9:00 AM)",
+    "precio": "Boleto Turístico: S/ 70.00 (Extranjeros), S/ 20.00 (Nacionales)",
+    "como_llegar": "Bus desde Arequipa a Chivay (3.5 horas) o tour",
+    "transportePublico": "Bus Interprovincial / Tour",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🌄 Paisaje",
+      "🦅 Aves"
+    ],
+    "tipLocal": "Llega a la Cruz del Cóndor antes de las 8:00 AM para ver el vuelo con corrientes térmicas"
+  },
+  {
+    "id": 22,
+    "nombre": "Líneas y Geoglifos de Nazca",
+    "region": "Ica",
+    "lat": -14.7167,
+    "lng": -75.1333,
+    "categoria": "Arqueológico",
+    "tiposExplorador": [
+      "Cultural",
+      "Aventura"
+    ],
+    "descripcion": "Misteriosas figuras trazadas en la pampa desértica por la cultura Nazca. Patrimonio Mundial.",
+    "horario": "Sobrevuelos: 7:00-15:00 (sujeto a clima)",
+    "precio": "Tasa tuerto: S/ 40.00 + Sobrevuelo ($80-$100 USD)",
+    "como_llegar": "Bus a Nazca + Taxi al Aeródromo María Reiche",
+    "transportePublico": "Bus Interprovincial",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🏛️ Patrimonio",
+      "✈️ Aéreo"
+    ],
+    "tipLocal": "Toma un desayuno ligero antes de volar para evitar mareos en la avioneta"
+  },
+  {
+    "id": 23,
+    "nombre": "Oasis de la Huacachina",
+    "region": "Ica",
+    "lat": -14.0872,
+    "lng": -75.7633,
+    "categoria": "Naturaleza",
+    "tiposExplorador": [
+      "Naturaleza",
+      "Aventura"
+    ],
+    "descripcion": "Oasis natural rodeado de dunas gigantes en medio del desierto iqueño.",
+    "horario": "24 horas",
+    "precio": "Gratis (Tubulares + Sandboard S/ 40 - S/ 60)",
+    "como_llegar": "Mototaxi o Taxi desde el centro de Ica (10 min)",
+    "transportePublico": "Taxi / Mototaxi",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🏜️ Desierto",
+      "🏄 Sandboard"
+    ],
+    "tipLocal": "Haz la excursión en tubular a las 4:30 PM para ver el atardecer en las dunas"
+  },
+  {
+    "id": 24,
+    "nombre": "Ruta de Bodegas Pisqueras de Ica",
+    "region": "Ica",
+    "lat": -14.0675,
+    "lng": -75.725,
+    "categoria": "Gastronomía",
+    "tiposExplorador": [
+      "Gastronómico"
+    ],
+    "descripcion": "Viñedos y bodegas artesanales/industriales donde se elabora el Pisco peruano.",
+    "horario": "Lun-Dom 9:00-17:00",
+    "precio": "Catas de S/ 15.00 a S/ 40.00 (algunas gratuitas con consumo)",
+    "como_llegar": "Taxi o Tour desde Ica/Huacachina",
+    "transportePublico": "Taxi / Tour",
+    "esJoyaOculta": true,
+    "etiquetas": [
+      "🍷 Vino",
+      "🍇 Pisco",
+      "💎 Joya Oculta"
+    ],
+    "tipLocal": "Visita Tacama para ver la bodega más antigua de Sudamérica o El Catador para ambiente tradicional"
+  },
+  {
+    "id": 25,
+    "nombre": "Reserva Nacional de Paracas",
+    "region": "Ica",
+    "lat": -13.8333,
+    "lng": -76.25,
+    "categoria": "Naturaleza",
+    "tiposExplorador": [
+      "Naturaleza"
+    ],
+    "descripcion": "Ecosistema marino-costero desértico con acantilados, playas de colores y fauna marina.",
+    "horario": "8:00-16:00",
+    "precio": "S/ 11.00 (Entrada SERNANP)",
+    "como_llegar": "Taxi o Tour desde el Chaco (Paracas)",
+    "transportePublico": "Tour / Auto particular",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🌊 Mar",
+      "🦭 Fauna"
+    ],
+    "tipLocal": "Renta una bicicleta o scooter eléctrico para recorrer la ruta costera interna"
+  },
+  {
+    "id": 26,
+    "nombre": "Chan Chan",
+    "region": "La Libertad",
+    "lat": -8.11,
+    "lng": -79.075,
+    "categoria": "Arqueológico",
+    "tiposExplorador": [
+      "Cultural"
+    ],
+    "descripcion": "La ciudadela de barro más grande de la América precolombina, capital del Imperio Chimú.",
+    "horario": "Lun-Dom 9:00-16:00",
+    "precio": "S/ 11.00",
+    "como_llegar": "Bus / Combi ruta Huanchaco desde Trujillo (15 min)",
+    "transportePublico": "Combi / Bus local",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🏛️ Patrimonio",
+      "🏜️ Desierto"
+    ],
+    "tipLocal": "El Palacio Nik An es el único sector restaurado abierto totalmente al público"
+  },
+  {
+    "id": 27,
+    "nombre": "Huacas del Sol y de la Luna",
+    "region": "La Libertad",
+    "lat": -8.1333,
+    "lng": -79.0333,
+    "categoria": "Arqueológico",
+    "tiposExplorador": [
+      "Cultural"
+    ],
+    "descripcion": "Santuarios moche de adobe con frisos y relieve polícromos del dios Ai Apaec.",
+    "horario": "Mar-Dom 9:00-16:00",
+    "precio": "S/ 10.00",
+    "como_llegar": "Combi 'Huacas del Sol' desde Trujillo (15 min)",
+    "transportePublico": "Combi Local",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🏛️ Arqueológico",
+      "🎨 Murales"
+    ],
+    "tipLocal": "Visita primero el Museo de Sitio Moche antes de subir a la Huaca de la Luna"
+  },
+  {
+    "id": 28,
+    "nombre": "Plaza de Armas de Trujillo",
+    "region": "La Libertad",
+    "lat": -8.1109,
+    "lng": -79.0301,
+    "categoria": "Historia",
+    "tiposExplorador": [
+      "Cultural",
+      "Urbano"
+    ],
+    "descripcion": "Una de las plazas más amplias de Perú, destacada por su Monumento a la Libertad y casonas amarillas.",
+    "horario": "24 horas",
+    "precio": "Gratis",
+    "como_llegar": "Centro histórico de Trujillo",
+    "transportePublico": "Caminando",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🏛️ Patrimonio",
+      "🌳 Parque"
+    ],
+    "tipLocal": "Disfruta de la arquitectura neoclásica de la Catedral e Iglesia de la Compañía"
+  },
+  {
+    "id": 29,
+    "nombre": "Lago Titicaca",
+    "region": "Puno",
+    "lat": -15.8233,
+    "lng": -69.7714,
+    "categoria": "Naturaleza",
+    "tiposExplorador": [
+      "Naturaleza",
+      "Cultural"
+    ],
+    "descripcion": "El lago navegable más alto del mundo (3,812 msnm), cuna mitológica de la civilización Inca.",
+    "horario": "Embarcaciones salen desde 6:00 AM",
+    "precio": "Varia según circuito (S/ 30 - S/ 120)",
+    "como_llegar": "Taxi al Puerto Lacustre de Puno",
+    "transportePublico": "Lancha / Barco",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🌊 Lago",
+      "🏝️ Islas"
+    ],
+    "tipLocal": "Lleva ropa de abrigo en capas; el viento lacustre al atardecer es muy frío"
+  },
+  {
+    "id": 30,
+    "nombre": "Islas Flotantes de los Uros",
+    "region": "Puno",
+    "lat": -15.8242,
+    "lng": -69.9681,
+    "categoria": "Cultura",
+    "tiposExplorador": [
+      "Cultural"
+    ],
+    "descripcion": "Islas artificiales ancestrales tejidas sobre raíces de totora en el Lago Titicaca.",
+    "horario": "6:00-16:30",
+    "precio": "S/ 10.00 (Tasa de puerto) + Lancha (S/ 25.00)",
+    "como_llegar": "Lancha desde el Puerto de Puno (30 min)",
+    "transportePublico": "Lancha colectiva",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🏝️ Islas",
+      "🎨 Cultura Viva"
+    ],
+    "tipLocal": "Puedes dar un paseo en la embarcación tradicional de totora 'Mercedes'"
+  },
+  {
+    "id": 31,
+    "nombre": "Isla Taquile",
+    "region": "Puno",
+    "lat": -15.7833,
+    "lng": -69.7,
+    "categoria": "Cultura",
+    "tiposExplorador": [
+      "Cultural",
+      "Naturaleza"
+    ],
+    "descripcion": "Isla autóctona cuyos tejedores masculinos crean arte textil Patrimonio Inmaterial de la Humanidad.",
+    "horario": "Lanchas llegan aprox 11:00 AM",
+    "precio": "S/ 10.00 (Entrada a la isla)",
+    "como_llegar": "Lancha veloz (1.5h) o lancha normal (3h) desde Puno",
+    "transportePublico": "Lancha",
+    "esJoyaOculta": true,
+    "etiquetas": [
+      "🏝️ Isla",
+      "🧵 Textilería",
+      "💎 Joya Oculta"
+    ],
+    "tipLocal": "Sube pacientemente los 500 escalones hasta el pueblo para probar trucha fresca"
+  },
+  {
+    "id": 32,
+    "nombre": "Fortaleza de Kuélap",
+    "region": "Amazonas",
+    "lat": -6.4167,
+    "lng": -77.9333,
+    "categoria": "Arqueológico",
+    "tiposExplorador": [
+      "Cultural",
+      "Naturaleza"
+    ],
+    "descripcion": "Santuario amurallado de la cultura Chachapoyas erigido sobre los Andes amazónicos.",
+    "horario": "Mar-Dom 8:00-16:00",
+    "precio": "S/ 30.00 (Teleférico) + S/ 20.00 (Ingreso)",
+    "como_llegar": "Bus Chachapoyas a Tingo + Teleférico de Kuélap",
+    "transportePublico": "Minivan + Teleférico",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🏛️ Arqueológico",
+      "🚠 Teleférico"
+    ],
+    "tipLocal": "Verifica el estado del acceso al interior antes de viajar debido a trabajos de conservación"
+  },
+  {
+    "id": 33,
+    "nombre": "Catarata Gocta",
+    "region": "Amazonas",
+    "lat": -6.0167,
+    "lng": -77.9667,
+    "categoria": "Naturaleza",
+    "tiposExplorador": [
+      "Naturaleza",
+      "Aventura"
+    ],
+    "descripcion": "Imponente caída de agua de dos saltos con una altura total de 771 metros rodeada de vegetación.",
+    "horario": "7:00-13:00 (límite de inicio de caminata)",
+    "precio": "S/ 20.00 (Entrada comunal)",
+    "como_llegar": "Bus Chachapoyas a Cocachimba o San Pablo + 2h caminata",
+    "transportePublico": "Colectivo + Caminata",
+    "esJoyaOculta": true,
+    "etiquetas": [
+      "🌊 Cascada",
+      "🥾 Trekking",
+      "💎 Joya Oculta"
+    ],
+    "tipLocal": "Alquila un caballo en Cocachimba si prefieres evitar el esfuerzo en la subida de regreso"
+  },
+  {
+    "id": 34,
+    "nombre": "Cataratas de Ahuashiyacu",
+    "region": "San Martín",
+    "lat": -6.3167,
+    "lng": -76.4,
+    "categoria": "Naturaleza",
+    "tiposExplorador": [
+      "Naturaleza"
+    ],
+    "descripcion": "Caída de agua cristalina de 40 metros de fácil acceso en el Escalera Área de Conservación.",
+    "horario": "8:00-17:00",
+    "precio": "S/ 10.00",
+    "como_llegar": "Mototaxi o Taxi desde Tarapoto (20 minutos)",
+    "transportePublico": "Mototaxi / Taxi",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🌊 Cascada",
+      "🌿 Selva"
+    ],
+    "tipLocal": "Ideal para darse un baño matutino refrescante rodeado de orquídeas"
+  },
+  {
+    "id": 35,
+    "nombre": "Laguna Azul (El Sauce)",
+    "region": "San Martín",
+    "lat": -6.5,
+    "lng": -76.3667,
+    "categoria": "Naturaleza",
+    "tiposExplorador": [
+      "Naturaleza"
+    ],
+    "descripcion": "Espejo de agua de 350 hectáreas rodeado de selva, perfecto para deportes acuáticos.",
+    "horario": "24 horas",
+    "precio": "Gratis (Tours en bote S/ 30 - S/ 50)",
+    "como_llegar": "Auto/Bus Tarapoto a Puerto López + Balsa cruzando el Río Huallaga + 45 min",
+    "transportePublico": "Colectivo + Balsa",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🏞️ Laguna",
+      "🌿 Selva"
+    ],
+    "tipLocal": "Toma el paseo en bote hacia los recreos turísticos para probar el trago tradicional 'Siete Raíces'"
+  },
+  {
+    "id": 36,
+    "nombre": "Ciudad Sagrada de Caral",
+    "region": "Lima",
+    "lat": -10.8917,
+    "lng": -77.5208,
+    "categoria": "Arqueológico",
+    "tiposExplorador": [
+      "Cultural"
+    ],
+    "descripcion": "Cuna de la civilización más antigua de América (5,000 años de antigüedad), en el Valle de Supe.",
+    "horario": "Lun-Dom 9:00-16:00",
+    "precio": "S/ 11.00 (Entrada) + S/ 20.00 (Guía obligatorio por grupo)",
+    "como_llegar": "Bus Lima a Barranca (Bajada en Supe) + Colectivo a Caral",
+    "transportePublico": "Bus Interprovincial + Colectivo",
+    "esJoyaOculta": true,
+    "etiquetas": [
+      "🏛️ Patrimonio",
+      "📜 Historia",
+      "💎 Joya Oculta"
+    ],
+    "tipLocal": "Es zona muy desértica y calurosa; imperativo llevar agua, bloqueador y sombrero de ala ancha"
+  },
+  {
+    "id": 37,
+    "nombre": "Playas de Máncora",
+    "region": "Piura",
+    "lat": -4.1056,
+    "lng": -81.0472,
+    "categoria": "Naturaleza",
+    "tiposExplorador": [
+      "Naturaleza",
+      "Aventura"
+    ],
+    "descripcion": "Epicentro del surf y el descanso en el norte peruano, con aguas cálidas y sol todo el año.",
+    "horario": "24 horas",
+    "precio": "Gratis",
+    "como_llegar": "Bus desde Piura o Tumbes / Vuelo a Talara (1h en auto)",
+    "transportePublico": "Bus Interprovincial",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🏖️ Playa",
+      "🏄 Surf"
+    ],
+    "tipLocal": "Prueba el ceviche de conchas negras en los restaurantes frente a la playa"
+  },
+  {
+    "id": 38,
+    "nombre": "Los Órganos y Avistamiento de Ballenas",
+    "region": "Piura",
+    "lat": -4.1833,
+    "lng": -81.1333,
+    "categoria": "Naturaleza",
+    "tiposExplorador": [
+      "Naturaleza"
+    ],
+    "descripcion": "Tranquila caleta de pescadores ideal para observar ballenas jorobadas de julio a octubre.",
+    "horario": "Tours marinos salen 7:00 AM - 11:00 AM",
+    "precio": "Tours de avistamiento S/ 70 - S/ 120",
+    "como_llegar": "Bus o colectivo desde Máncora (15 min)",
+    "transportePublico": "Colectivo Local",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🏖️ Playa",
+      "🐋 Ballenas"
+    ],
+    "tipLocal": "En el muelle puedes nadar de manera responsable con tortugas marinas gigantes"
+  },
+  {
+    "id": 39,
+    "nombre": "Cabo Blanco",
+    "region": "Piura",
+    "lat": -4.2333,
+    "lng": -81.2,
+    "categoria": "Naturaleza",
+    "tiposExplorador": [
+      "Naturaleza"
+    ],
+    "descripcion": "Mítica playa de pesca de merlín donde Ernest Hemingway filmó escenas de 'El viejo y el mar'.",
+    "horario": "24 horas",
+    "precio": "Gratis",
+    "como_llegar": "Colectivo desde El Alto / Talara",
+    "transportePublico": "Colectivo Local",
+    "esJoyaOculta": true,
+    "etiquetas": [
+      "🎣 Pesca",
+      "📜 Historia",
+      "💎 Joya Oculta"
+    ],
+    "tipLocal": "Famosa entre surfistas en invierno por la ola perfecta 'Panic Point'"
+  },
+  {
+    "id": 40,
+    "nombre": "Santuario Histórico Bosque de Pómac",
+    "region": "Lambayeque",
+    "lat": -6.4667,
+    "lng": -79.7833,
+    "categoria": "Naturaleza",
+    "tiposExplorador": [
+      "Naturaleza"
+    ],
+    "descripcion": "Mayor concentración de algarrobos del planeta que protege pirámides de la cultura Sicán.",
+    "horario": "8:00-16:00",
+    "precio": "S/ 11.00",
+    "como_llegar": "Colectivo desde Chiclayo hacia Ferreñafe/Batan Grande",
+    "transportePublico": "Colectivo",
+    "esJoyaOculta": true,
+    "etiquetas": [
+      "🌳 Bosque",
+      "🐦 Aves",
+      "💎 Joya Oculta"
+    ],
+    "tipLocal": "Sube al Mirador Las Ventanas para apreciar el mar de árboles y las pirámides sobresaliendo"
+  },
+  {
+    "id": 41,
+    "nombre": "Museo Tumbas Reales de Sipán",
+    "region": "Lambayeque",
+    "lat": -6.7667,
+    "lng": -79.8333,
+    "categoria": "Museo",
+    "tiposExplorador": [
+      "Cultural"
+    ],
+    "descripcion": "Museo con forma de pirámide trunca que alberga los tesoros de oro y plata del Señor de Sipán.",
+    "horario": "Mar-Dom 9:00-17:00",
+    "precio": "S/ 10.00",
+    "como_llegar": "Colectivos desde Chiclayo a Lambayeque (20 min)",
+    "transportePublico": "Colectivo Local",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🏛️ Museo",
+      "📜 Historia"
+    ],
+    "tipLocal": "Considerado uno de los mejores museos arqueológicos de América Latina; no permite fotos en sala principal"
+  },
+  {
+    "id": 42,
+    "nombre": "Feria Gastronómica e Histórica de Monsefú",
+    "region": "Lambayeque",
+    "lat": -6.7,
+    "lng": -79.9,
+    "categoria": "Cultura",
+    "tiposExplorador": [
+      "Cultural",
+      "Gastronómico"
+    ],
+    "descripcion": "Pueblo de artesanos en paja rafia y orfebrería, famoso por su gastronomía regional mochica.",
+    "horario": "Mercado abierto diariamente de 8:00 a 17:00",
+    "precio": "Gratis",
+    "como_llegar": "Combi o colectivo desde Chiclayo (15 min)",
+    "transportePublico": "Combi Local",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🎉 Festividad",
+      "🎨 Tradición"
+    ],
+    "tipLocal": "Prueba el 'Arroz con Pato' a la chiclayana y compra sombreros teñidos a mano"
+  },
+  {
+    "id": 43,
+    "nombre": "Dunas de Huacachina al Atardecer",
+    "region": "Ica",
+    "lat": -14.0864,
+    "lng": -75.7648,
+    "categoria": "Naturaleza",
+    "tiposExplorador": [
+      "Naturaleza"
+    ],
+    "descripcion": "Vista nocturna del oasis iluminado desde la cresta de las dunas del desierto.",
+    "horario": "24 horas (Recomendado 17:30 a 20:00)",
+    "precio": "Gratis",
+    "como_llegar": "Caminando desde la laguna subiendo la duna principal",
+    "transportePublico": "A pie",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🏜️ Desierto",
+      "🌙 Nocturno"
+    ],
+    "tipLocal": "Lleva una casaca ligera; la temperatura en el desierto cae rápidamente al anochecer"
+  },
+  {
+    "id": 44,
+    "nombre": "Islas Ballestas",
+    "region": "Ica",
+    "lat": -13.7358,
+    "lng": -76.3975,
+    "categoria": "Naturaleza",
+    "tiposExplorador": [
+      "Naturaleza"
+    ],
+    "descripcion": "Formaciones rocosas hogar de miles de lobos marinos, pingüinos de Humboldt y aves guaneras.",
+    "horario": "Salidas de botes: 8:00 AM y 10:00 AM",
+    "precio": "S/ 50.00 - S/ 70.00 (Incluye impuesto de embarcadero)",
+    "como_llegar": "Embarcadero turístico de El Chaco (Paracas)",
+    "transportePublico": "Lancha turística",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🌊 Mar",
+      "🦭 Fauna"
+    ],
+    "tipLocal": "Siéntate en el lado izquierdo del deslizador para apreciar mejor el geoglifo El Candelabro"
+  },
+  {
+    "id": 45,
+    "nombre": "Mirador del Cañón del Utcubamba",
+    "region": "Amazonas",
+    "lat": -6.3897,
+    "lng": -77.9048,
+    "categoria": "Naturaleza",
+    "tiposExplorador": [
+      "Naturaleza"
+    ],
+    "descripcion": "Punto panorámico sobre el sinuoso valle del río Utcubamba en la ruta hacia Kuélap.",
+    "horario": "24 horas",
+    "precio": "Gratis",
+    "como_llegar": "Vía terrestre camino a Tingo",
+    "transportePublico": "Colectivo / Auto",
+    "esJoyaOculta": true,
+    "etiquetas": [
+      "🌄 Vista",
+      "💎 Joya Oculta"
+    ],
+    "tipLocal": "Punto perfecto para tomar fotos de la geografía accidentada de la ceja de selva"
+  },
+  {
+    "id": 46,
+    "nombre": "Playa Roja de Paracas",
+    "region": "Ica",
+    "lat": -13.8619,
+    "lng": -76.2645,
+    "categoria": "Naturaleza",
+    "tiposExplorador": [
+      "Naturaleza"
+    ],
+    "descripcion": "Playa de arena color carmesí único, originada por la erosión de rocas de macizo granodiorítico.",
+    "horario": "8:00-16:00",
+    "precio": "Incluido en entrada a Reserva de Paracas",
+    "como_llegar": "Tour circuito Reserva de Paracas o auto",
+    "transportePublico": "Tour / Auto",
+    "esJoyaOculta": true,
+    "etiquetas": [
+      "🏖️ Playa",
+      "🔴 Paisaje",
+      "💎 Joya Oculta"
+    ],
+    "tipLocal": "Prohibido ingresar al agua o a la orilla; el mirador superior ofrece la toma fotográfica ideal"
+  },
+  {
+    "id": 47,
+    "nombre": "Casa de la Literatura Peruana",
+    "region": "Lima",
+    "lat": -12.0443,
+    "lng": -77.0289,
+    "categoria": "Cultura",
+    "tiposExplorador": [
+      "Cultural",
+      "Urbano"
+    ],
+    "descripcion": "Centro cultural situado en la antigua Estación de Trenes de Desamparados con hermosa vitrina art nouveau.",
+    "horario": "Mar-Dom 10:00-19:00",
+    "precio": "Gratis",
+    "como_llegar": "A la espalda del Palacio de Gobierno (Centro de Lima)",
+    "transportePublico": "Metropolitano: Estación Jirón de la Unión",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "📚 Literatura",
+      "🏛️ Cultura"
+    ],
+    "tipLocal": "Visita la Sala Mario Vargas Llosa y la biblioteca infantil"
+  },
+  {
+    "id": 48,
+    "nombre": "Museo de Arte de Lima (MALI)",
+    "region": "Lima",
+    "lat": -12.06,
+    "lng": -77.035,
+    "categoria": "Museo",
+    "tiposExplorador": [
+      "Cultural",
+      "Urbano"
+    ],
+    "descripcion": "Ubicado en el histórico Palacio de la Exposición, abarca 3,000 años de arte peruano.",
+    "horario": "Mar-Dom 10:00-18:00, Sábados hasta las 17:00",
+    "precio": "S/ 15.00 (Nacionales), S/ 30.00 (Extranjeros)",
+    "como_llegar": "Metropolitano: Estación Central",
+    "transportePublico": "Metropolitano",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🎨 Arte",
+      "🏛️ Museo"
+    ],
+    "tipLocal": "Aprovecha la promoción de ingreso gratuito o 'Noche MALI' una vez al mes"
+  },
+  {
+    "id": 49,
+    "nombre": "Mirador Cerro San Cristóbal",
+    "region": "Lima",
+    "lat": -12.0333,
+    "lng": -77.0167,
+    "categoria": "Naturaleza",
+    "tiposExplorador": [
+      "Naturaleza",
+      "Urbano"
+    ],
+    "descripcion": "Tutu tutelar de Lima con una cruz monumental de 20 metros desde donde se divisa toda la cuenca de la ciudad.",
+    "horario": "8:00-18:00",
+    "precio": "Gratis (Buses turísticos 'Uurbanos' cobran S/ 10.00 subida y bajada)",
+    "como_llegar": "Buses turísticos desde la Plaza Mayor de Lima",
+    "transportePublico": "Bus Turístico ('Urbanito')",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🌄 Mirador",
+      "📸 Fotos"
+    ],
+    "tipLocal": "Sube únicamente en los buses autorizados desde la Plaza Mayor por seguridad"
+  },
+  {
+    "id": 50,
+    "nombre": "Basílica y Convento de San Francisco",
+    "region": "Lima",
+    "lat": -12.0457,
+    "lng": -77.0273,
+    "categoria": "Historia",
+    "tiposExplorador": [
+      "Cultural"
+    ],
+    "descripcion": "Conjunto arquitectónico colonial famoso por sus sobrecogedoras Catacumbas subterráneas y biblioteca barroca.",
+    "horario": "Lun-Dom 9:00-18:00",
+    "precio": "S/ 20.00",
+    "como_llegar": "A 2 cuadras de la Plaza Mayor de Lima",
+    "transportePublico": "Metropolitano: Estación Jirón de la Unión",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🏛️ Patrimonio",
+      "💀 Catacumbas"
+    ],
+    "tipLocal": "El tour guiado adentro dura 45 minutos e incluye el recorrido por la biblioteca de incunables"
+  },
+  {
+    "id": 51,
+    "nombre": "Parque de las Leyendas",
+    "region": "Lima",
+    "lat": -12.07,
+    "lng": -77.08,
+    "categoria": "Parque",
+    "tiposExplorador": [
+      "Naturaleza",
+      "Cultural"
+    ],
+    "descripcion": "El zoológico principal de la ciudad que integra zonas botánicas, zoología mundial y 53 huacas arqueológicas.",
+    "horario": "Lun-Dom 9:00-17:00",
+    "precio": "S/ 15.00 (Adultos), S/ 8.00 (Niños)",
+    "como_llegar": "Corredor Rojo por Av. La Marina o Taxi",
+    "transportePublico": "Corredor Rojo / Bus",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🦁 Zoológico",
+      "🌳 Parque"
+    ],
+    "tipLocal": "Visita la zona 'Costa, Sierra y Selva' para conocer la fauna autóctona de Perú"
+  },
+  {
+    "id": 52,
+    "nombre": "Bajada de Baños de Barranco",
+    "region": "Lima",
+    "lat": -12.1468,
+    "lng": -77.0208,
+    "categoria": "Cultura",
+    "tiposExplorador": [
+      "Urbano",
+      "Cultural"
+    ],
+    "descripcion": "Camino abovedado rodeado de casonas restauradas, galerías de arte y bares que desciende hacia las playas.",
+    "horario": "24 horas",
+    "precio": "Gratis",
+    "como_llegar": "Metropolitano: Estación Bulevar (Barranco)",
+    "transportePublico": "Metropolitano Línea C",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🎨 Arte",
+      "🌅 Atardecer",
+      "🎵 Música"
+    ],
+    "tipLocal": "Visítalo de noche para disfrutar de música criolla o jazz en vivo en sus bares locales"
+  },
+  {
+    "id": 53,
+    "nombre": "Mercado Central de Lima y Barrio Chino",
+    "region": "Lima",
+    "lat": -12.051,
+    "lng": -77.026,
+    "categoria": "Gastronomía",
+    "tiposExplorador": [
+      "Gastronómico",
+      "Urbano"
+    ],
+    "descripcion": "Eje comercial y gastronómico fusionado con la tradición oriental en la Calle Capón.",
+    "horario": "Lun-Dom 8:00-18:00",
+    "precio": "Gratis (Ingreso)",
+    "como_llegar": "Caminando 4 cuadras desde la Plaza Mayor",
+    "transportePublico": "Metropolitano / Caminando",
+    "esJoyaOculta": true,
+    "etiquetas": [
+      "🛒 Mercado",
+      "🍜 Comida",
+      "💎 Joya Oculta"
+    ],
+    "tipLocal": "Prueba el auténtico Arroz Chaufa y Min Pao en los Chifas tradicionales de la Calle Capón"
+  },
+  {
+    "id": 54,
+    "nombre": "Laguna 69 (Parque Nacional Huascarán)",
+    "region": "Áncash",
+    "lat": -9.0069,
+    "lng": -77.6167,
+    "categoria": "Naturaleza",
+    "tiposExplorador": [
+      "Naturaleza"
+    ],
+    "descripcion": "Mágica laguna de aguas turquesas a 4,600 msnm al pie de impresionantes glaciares de la Cordillera Blanca.",
+    "horario": "6:00 - 17:00 (Trekking diurno)",
+    "precio": "S/ 30.00 (Boleto PN Huascarán)",
+    "como_llegar": "Desde Huaraz hacia Cebollapampa en bus/tour (3 hrs), luego caminata de 3-4 hrs.",
+    "transportePublico": "Tour desde Huaraz / Colectivo a Yungay",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🏔️ Glaciar",
+      "🥾 Trekking",
+      "💧 Laguna"
+    ],
+    "tipLocal": "Aclimátate al menos dos días en Huaraz antes de subir y lleva bastones de trekking."
+  },
+  {
+    "id": 55,
+    "nombre": "Monumento Arqueológico Chavín de Huántar",
+    "region": "Áncash",
+    "lat": -9.5939,
+    "lng": -77.1775,
+    "categoria": "Historia",
+    "tiposExplorador": [
+      "Cultural"
+    ],
+    "descripcion": "Centro ceremonial milenario del formativo andino, con misteriosas galerías subterráneas, cabezas clavas y el Lanzón Monolítico.",
+    "horario": "Mar-Dom 9:00 - 16:00",
+    "precio": "S/ 15.00 (Adultos), S/ 4.00 (Estudiantes)",
+    "como_llegar": "Bus o minivan desde Huaraz cruzando el túnel de Cahuish (aprox. 3 horas).",
+    "transportePublico": "Buses Huaraz - Huari / Chavín",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🏛️ Patrimonio UNESCO",
+      "📜 Milenario",
+      "🗿 Escultura"
+    ],
+    "tipLocal": "Contrata un guía local para comprender la increíble acústica de sus canales subterráneos."
+  },
+  {
+    "id": 56,
+    "nombre": "Lagunas de Llanganuco (Chinancocha)",
+    "region": "Áncash",
+    "lat": -9.0667,
+    "lng": -77.65,
+    "categoria": "Naturaleza",
+    "tiposExplorador": [
+      "Naturaleza"
+    ],
+    "descripcion": "Espectaculares lagunas de color verde esmeralda encajonadas entre los imponentes nevados Huascarán y Huandoy.",
+    "horario": "7:00 - 16:00",
+    "precio": "S/ 30.00 (Ingreso PN Huascarán)",
+    "como_llegar": "Desde Huaraz a Yungay (1 hr) y luego combi o taxi a la quebrada (45 min).",
+    "transportePublico": "Combi desde terminal Yungay",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🚣 Paseo en bote",
+      "🌲 Queñuales",
+      "🏔️ Huascarán"
+    ],
+    "tipLocal": "Puedes alquilar un paseo en bote tradicional de totora o madera para recorrer Chinancocha."
+  },
+  {
+    "id": 57,
+    "nombre": "Mirador de Yanahuara",
+    "region": "Arequipa",
+    "lat": -16.3867,
+    "lng": -71.5419,
+    "categoria": "Mirador",
+    "tiposExplorador": [
+      "Urbano",
+      "Cultural"
+    ],
+    "descripcion": "Arcos coloniales de sillar tallado con versos de poetas arequipeños y una vista privilegiada del volcán Misti.",
+    "horario": "24 horas",
+    "precio": "Gratis",
+    "como_llegar": "A 10 minutos en taxi desde la Plaza de Armas o 20 minutos a pie.",
+    "transportePublico": "Taxi / Líneas hacia Yanahuara",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🌋 Vista Volcán",
+      "🏛️ Sillar",
+      "🍦 Queso Helado"
+    ],
+    "tipLocal": "Prueba el tradicional queso helado arequipeño que venden las señoras en la plaza del mirador."
+  },
+  {
+    "id": 58,
+    "nombre": "Canteras de Sillar de Añashuayco",
+    "region": "Arequipa",
+    "lat": -16.3475,
+    "lng": -71.5833,
+    "categoria": "Cultura",
+    "tiposExplorador": [
+      "Cultural",
+      "Urbano"
+    ],
+    "descripcion": "Gigantescas paredes y tallados en piedra volcánica blanca donde los canteros tradicionales labran el alma arquitectónica de Arequipa.",
+    "horario": "Lun-Dom 8:00 - 16:30",
+    "precio": "S/ 5.00",
+    "como_llegar": "A 35 minutos del centro en tour Ruta del Sillar o taxi hacia Cerro Colorado.",
+    "transportePublico": "Tours organizados / Colectivo Cerro Colorado",
+    "esJoyaOculta": true,
+    "etiquetas": [
+      "💎 Joya Oculta",
+      "⛏️ Tradición",
+      "📸 Esculturas"
+    ],
+    "tipLocal": "Observa la demostración en vivo de los maestros cortadores y sus réplicas de templos talladas en roca."
+  },
+  {
+    "id": 59,
+    "nombre": "Salineras de Maras",
+    "region": "Cusco",
+    "lat": -13.3008,
+    "lng": -72.155,
+    "categoria": "Naturaleza",
+    "tiposExplorador": [
+      "Naturaleza",
+      "Cultural"
+    ],
+    "descripcion": "Más de 3,000 pozas de evaporación de sal natural rosada explotadas artesanalmente desde la época incaica en la ladera del cerro Qaqawiñay.",
+    "horario": "Lun-Dom 8:00 - 17:00",
+    "precio": "S/ 20.00",
+    "como_llegar": "A 1 hora y media de Cusco en auto o combinando con tours al Valle Sagrado.",
+    "transportePublico": "Colectivo Cusco-Urubamba, bajada en ramal de Maras",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🧂 Sal Rosada",
+      "🌄 Valle Sagrado",
+      "📸 Fotogenia"
+    ],
+    "tipLocal": "Compra sal de maras fina y gourmet directamente a las familias de la comunidad local."
+  },
+  {
+    "id": 60,
+    "nombre": "Sitio Arqueológico de Moray",
+    "region": "Cusco",
+    "lat": -13.3297,
+    "lng": -72.1969,
+    "categoria": "Historia",
+    "tiposExplorador": [
+      "Cultural"
+    ],
+    "descripcion": "Colosales andenes circulares concéntricos que formaban un avanzado centro de investigación agrícola inca con microclimas térmicos.",
+    "horario": "Lun-Dom 7:00 - 17:00",
+    "precio": "Boleto Turístico del Cusco (BTC)",
+    "como_llegar": "Ubicado a 7 km de Maras, accesible mediante carretera afirmada en taxi o tour.",
+    "transportePublico": "Tour del Valle Sagrado / Taxi desde Urubamba",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🌀 Andenes Circulares",
+      "🌱 Ciencia Inca",
+      "📜 Historia"
+    ],
+    "tipLocal": "La diferencia de temperatura entre la parte superior e inferior puede ser de hasta 15°C."
+  },
+  {
+    "id": 61,
+    "nombre": "Laguna Humantay",
+    "region": "Cusco",
+    "lat": -13.3425,
+    "lng": -72.5739,
+    "categoria": "Naturaleza",
+    "tiposExplorador": [
+      "Naturaleza"
+    ],
+    "descripcion": "Laguna de ensueño con aguas color esmeralda y turquesa a los pies del imponente glaciar Salkantay.",
+    "horario": "6:00 - 16:00",
+    "precio": "S/ 20.00 (Comunidad Soraypampa)",
+    "como_llegar": "Desde Cusco a Mollepata / Soraypampa en transporte (3 hrs), seguido de caminata de 1.5 a 2 hrs.",
+    "transportePublico": "Tours diarios desde Cusco a las 4:30 am",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "💧 Aguas Turquesas",
+      "🥾 Trekking",
+      "🏔️ Glaciar"
+    ],
+    "tipLocal": "Camina a paso constante y realiza una pequeña ofrenda de apacheta respetando a los apus protectores."
+  },
+  {
+    "id": 62,
+    "nombre": "Chullpas de Sillustani",
+    "region": "Puno",
+    "lat": -15.7208,
+    "lng": -70.1586,
+    "categoria": "Historia",
+    "tiposExplorador": [
+      "Cultural"
+    ],
+    "descripcion": "Necrópolis ancestral con monumentales torres funerarias cilíndricas erigidas por la cultura Kolla e Inca frente a la mística laguna Umayo.",
+    "horario": "Mar-Dom 8:30 - 17:30",
+    "precio": "S/ 15.00",
+    "como_llegar": "A 40 minutos en taxi o tour desde el centro de Puno.",
+    "transportePublico": "Combi Puno - Juliaca con desvío en Atuncolla",
+    "esJoyaOculta": true,
+    "etiquetas": [
+      "💎 Joya Oculta",
+      "🗿 Torres Funerarias",
+      "🌅 Laguna Umayo"
+    ],
+    "tipLocal": "La vista de la puesta de sol reflejada en la laguna de Umayo es una de las más sobrecogedoras del altiplano."
+  },
+  {
+    "id": 63,
+    "nombre": "Isla Amantaní",
+    "region": "Puno",
+    "lat": -15.6644,
+    "lng": -69.7094,
+    "categoria": "Cultura",
+    "tiposExplorador": [
+      "Cultural",
+      "Naturaleza"
+    ],
+    "descripcion": "Tranquila isla del Lago Titicaca donde se vive el turismo vivencial con familias quechuas y templos a la Pachatata y Pachamama.",
+    "horario": "Permanente (pernocte vivencial)",
+    "precio": "S/ 10.00 (Ingreso isla) + Hospedaje familiar",
+    "como_llegar": "Lancha a motor desde el puerto de Puno (aprox. 3.5 horas).",
+    "transportePublico": "Lanchas colectivas desde Puerto de Puno",
+    "esJoyaOculta": true,
+    "etiquetas": [
+      "💎 Joya Oculta",
+      "🏡 Turismo Vivencial",
+      "🌌 Cielos Estrellados"
+    ],
+    "tipLocal": "Sube a la cima de Pachatata para presenciar el atardecer y disfruta de una noche libre de contaminación lumínica."
+  },
+  {
+    "id": 64,
+    "nombre": "Reserva Nacional Pacaya Samiria",
+    "region": "Loreto",
+    "lat": -5,
+    "lng": -74.5,
+    "categoria": "Naturaleza",
+    "tiposExplorador": [
+      "Naturaleza"
+    ],
+    "descripcion": "La Selva de los Espejos, el segundo humedal protegido más grande del Perú, hogar de delfines rosados, paiches y caimanes negros.",
+    "horario": "Expediciones autorizadas con guardaparques",
+    "precio": "S/ 30.00 (Boleto Sernanp por día)",
+    "como_llegar": "Desde Iquitos en auto a Nauta (1.5 hrs), luego navegación por los ríos Marañón y Ucayali.",
+    "transportePublico": "Expediciones guiadas desde Iquitos y Nauta",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🐬 Delfín Rosado",
+      "🌿 Selva Virgen",
+      "🛶 Navegación"
+    ],
+    "tipLocal": "Lleva repelente biodegradable, camisa manga larga clara y linterna de cabeza para paseos nocturnos."
+  },
+  {
+    "id": 65,
+    "nombre": "Malecón Tarapacá y Casa de Fierro",
+    "region": "Loreto",
+    "lat": -3.7489,
+    "lng": -73.2439,
+    "categoria": "Historia",
+    "tiposExplorador": [
+      "Urbano",
+      "Cultural"
+    ],
+    "descripcion": "Paseo histórico con mansiones azulejadas de la época dorada del caucho y la famosa estructura prefabricada atribuida a Gustave Eiffel.",
+    "horario": "24 horas",
+    "precio": "Gratis",
+    "como_llegar": "En mototaxi o a pie en el centro neurálgico de Iquitos.",
+    "transportePublico": "Mototaxi",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🏛️ Belle Époque",
+      "🍹 Juane y Camu Camu",
+      "🌊 Río Itaya"
+    ],
+    "tipLocal": "Tómate un refresco helado de camu-camu o aguaje en los cafés del malecón con brisa amazónica."
+  },
+  {
+    "id": 66,
+    "nombre": "Reserva Nacional Tambopata (Lago Sandoval)",
+    "region": "Madre de Dios",
+    "lat": -12.605,
+    "lng": -69.1764,
+    "categoria": "Naturaleza",
+    "tiposExplorador": [
+      "Naturaleza"
+    ],
+    "descripcion": "Hermoso lago en herradura rodeado de palmeras de aguaje donde habitan familias de lobos de río gigantes y guacamayos multicolores.",
+    "horario": "Ingreso diurno regulado",
+    "precio": "S/ 30.00 (Tarifa Sernanp)",
+    "como_llegar": "Bote desde Puerto Maldonado por el río Madre de Dios (30 min) y caminata por sendero de 3 km.",
+    "transportePublico": "Tours y botes autorizados desde Puerto Maldonado",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🦦 Lobo de Río",
+      "🦜 Guacamayos",
+      "🌴 Aguajales"
+    ],
+    "tipLocal": "El avistamiento temprano en canoa a remo al amanecer ofrece las mejores probabilidades de ver fauna activa."
+  },
+  {
+    "id": 67,
+    "nombre": "Cataratas Bayoz y Velo de la Novia",
+    "region": "Junín",
+    "lat": -10.9317,
+    "lng": -75.275,
+    "categoria": "Naturaleza",
+    "tiposExplorador": [
+      "Naturaleza"
+    ],
+    "descripcion": "Magníficas caídas de agua escalonadas y pozas naturales cristalinas en el valle de Perené en la Selva Central de Chanchamayo.",
+    "horario": "Lun-Dom 8:00 - 17:00",
+    "precio": "S/ 5.00",
+    "como_llegar": "A 45 minutos de La Merced por la carretera hacia Satipo, en colectivo o tour.",
+    "transportePublico": "Combi La Merced - Puerto Yurinaki",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🌊 Cascadas",
+      "☕ Ruta Cafetalera",
+      "🏊 Pozas Naturales"
+    ],
+    "tipLocal": "Disfruta de un baño refrescante en las pozas de Bayoz y visita las fincas cafetaleras cercanas para degustar café de especialidad."
+  },
+  {
+    "id": 68,
+    "nombre": "Pampa de Ayacucho y Obelisco de la Libertad",
+    "region": "Ayacucho",
+    "lat": -13.0531,
+    "lng": -74.1356,
+    "categoria": "Historia",
+    "tiposExplorador": [
+      "Cultural"
+    ],
+    "descripcion": "Santuario Histórico donde se libró la Batalla de Ayacucho en 1824 que selló la independencia sudamericana, presidido por un obelisco de mármol de 44 metros.",
+    "horario": "Lun-Dom 8:00 - 18:00",
+    "precio": "S/ 5.00",
+    "como_llegar": "A 45 minutos al noreste de Ayacucho pasando por el pintoresco pueblo alfarero de Quinua.",
+    "transportePublico": "Combis desde el Paradero de Quinua en Ayacucho",
+    "esJoyaOculta": false,
+    "etiquetas": [
+      "🇵🇪 Independencia",
+      "🏺 Cerámica de Quinua",
+      "🐎 Paseo a caballo"
+    ],
+    "tipLocal": "Visita los talleres de maestros ceramistas en Quinua y llévate una réplica de una iglesia tradicional para el tejado."
+  },
+  {
+    "id": 69,
+    "nombre": "Complejo Arqueológico Wari",
+    "region": "Ayacucho",
+    "lat": -13.06,
+    "lng": -74.1983,
+    "categoria": "Historia",
+    "tiposExplorador": [
+      "Cultural"
+    ],
+    "descripcion": "Vestigios de la urbe de piedra de la civilización Wari, el primer gran imperio expansivo de los Andes antes de los Incas.",
+    "horario": "Mar-Dom 9:00 - 17:00",
+    "precio": "S/ 10.00",
+    "como_llegar": "A 22 km de la ciudad de Ayacucho, carretera a Quinua.",
+    "transportePublico": "Combis ruta Ayacucho - Quinua",
+    "esJoyaOculta": true,
+    "etiquetas": [
+      "💎 Joya Oculta",
+      "🏛️ Primer Imperio Andino",
+      "📜 Museo de Sitio"
+    ],
+    "tipLocal": "No dejes de ingresar a las cámaras subterráneas funerarias de Monqachayoc con muros de piedra canteada."
+  },
+  {
+    "id": 70,
+    "nombre": "Cañón de los Perdidos",
+    "region": "Ica",
+    "lat": -14.7153,
+    "lng": -75.7608,
+    "categoria": "Naturaleza",
+    "tiposExplorador": [
+      "Naturaleza"
+    ],
+    "descripcion": "Impresionante cañón geológico de 600 metros de profundidad labrado por un antiguo afluente del río Ica con fósiles de ballenas y tiburones gigantes.",
+    "horario": "Salidas en 4x4 temprano en la mañana (6:00 - 14:00)",
+    "precio": "Gratis (Acceso), tours 4x4 desde S/ 80.00",
+    "como_llegar": "A 2 horas y media en vehículo 4x4 cruzando el desierto de Ocucaje desde Ica.",
+    "transportePublico": "Únicamente accesible en camionetas 4x4 o tour guiado",
+    "esJoyaOculta": true,
+    "etiquetas": [
+      "💎 Joya Oculta",
+      "🏜️ Desierto Profundo",
+      "🦖 Fósiles Marinos"
+    ],
+    "tipLocal": "Nunca intentes ir en auto particular estándar; es indispensable un chofer experimentado en dunas del desierto."
+  },
+  {
+    "id": 71,
+    "nombre": "Huaca Rajada (Cuna del Señor de Sipán)",
+    "region": "Lambayeque",
+    "lat": -6.8017,
+    "lng": -79.6019,
+    "categoria": "Historia",
+    "tiposExplorador": [
+      "Cultural"
+    ],
+    "descripcion": "Complejo arqueológico donde en 1987 el Dr. Walter Alva descubrió las tumbas intactas con el ajuar de oro más rico de las Américas.",
+    "horario": "Lun-Dom 9:00 - 17:00",
+    "precio": "S/ 8.00",
+    "como_llegar": "A 35 km al sureste de Chiclayo (45 min en auto o colectivo).",
+    "transportePublico": "Combis desde el terminal de Chiclayo hacia Sipán",
+    "esJoyaOculta": true,
+    "etiquetas": [
+      "💎 Joya Oculta",
+      "👑 Señor de Sipán",
+      "📜 Arqueología"
+    ],
+    "tipLocal": "El museo de sitio exhibe las réplicas exactas de cómo fueron encontradas las tumbas en sus niveles estratigráficos."
+  },
+  {
+    "id": 72,
+    "nombre": "Santuario Nacional Bosque de Piedras de Huayllay",
+    "region": "Pasco",
+    "lat": -10.9986,
+    "lng": -76.3533,
+    "categoria": "Naturaleza",
+    "tiposExplorador": [
+      "Naturaleza"
+    ],
+    "descripcion": "Uno de los bosques geológicos más asombrosos del mundo con más de 4,000 formaciones rocosas esculpidas por el viento y el agua que asemejan figuras gigantescas.",
+    "horario": "Lun-Dom 8:00 - 17:00",
+    "precio": "S/ 10.00",
+    "como_llegar": "A 40 km de Cerro de Pasco (1 hr) o desde Lima vía Canta - Huayllay (5 hrs).",
+    "transportePublico": "Colectivo Cerro de Pasco - Huayllay",
+    "esJoyaOculta": true,
+    "etiquetas": [
+      "💎 Joya Oculta",
+      "🪨 Rocas Gigantes",
+      "♨️ Termalismo"
+    ],
+    "tipLocal": "Luego de recorrer las rutas de trekking rocosas, relájate en las aguas termomedicinales de La Calera a 4,000 msnm."
+  },
+  {
+    "id": 73,
+    "nombre": "Baños Termales de La Calera",
+    "region": "Pasco",
+    "lat": -11.01,
+    "lng": -76.36,
+    "categoria": "Aventura",
+    "tiposExplorador": [
+      "Naturaleza"
+    ],
+    "descripcion": "Complejo de aguas termales sulfurosas y minerales que brotan a más de 60°C en las altas mesetas de Pasco, con propiedades curativas.",
+    "horario": "6:00 - 19:00",
+    "precio": "S/ 5.00",
+    "como_llegar": "A 3 km de la localidad de Huayllay.",
+    "transportePublico": "Mototaxi o taxi desde Huayllay",
+    "esJoyaOculta": true,
+    "etiquetas": [
+      "💎 Joya Oculta",
+      "♨️ Aguas Termales",
+      "🏔️ Andes Centrales"
+    ],
+    "tipLocal": "El contraste de sumergirte en agua caliente con el aire fresco andino es revitalizante."
+  }
+]

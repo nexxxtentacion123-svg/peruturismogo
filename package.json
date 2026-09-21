@@ -1,0 +1,8 @@
+{
+  "name": "peruturismo-go",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/run-tests.js"
+  }
+}

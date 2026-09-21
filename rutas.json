@@ -1,0 +1,346 @@
+[
+  {
+    "id": 1,
+    "nombre": "🏛️ Ruta Colonial",
+    "descripcion": "Descubre el corazón virreinal de Lima, sus plazas de armas, conventos y balcones del siglo XVI.",
+    "lugares_ids": [
+      1,
+      2,
+      3,
+      50
+    ],
+    "dificultad": "Fácil",
+    "duracion": "1 día",
+    "region": "Lima",
+    "categoria": "Historia"
+  },
+  {
+    "id": 2,
+    "nombre": "🌊 Ruta del Pacífico",
+    "descripcion": "Los mejores atardeceres frente al mar, acantilados de la Costa Verde y el barrio bohemio de Barranco.",
+    "lugares_ids": [
+      5,
+      6,
+      8,
+      52
+    ],
+    "dificultad": "Fácil",
+    "duracion": "1 día",
+    "region": "Lima",
+    "categoria": "Naturaleza y Ciudad"
+  },
+  {
+    "id": 3,
+    "nombre": "🗿 Ruta Arqueológica de Lima",
+    "descripcion": "Las huellas de las culturas Lima e Ychsma en medio de la metrópoli moderna.",
+    "lugares_ids": [
+      7,
+      11,
+      36
+    ],
+    "dificultad": "Fácil",
+    "duracion": "1 día",
+    "region": "Lima",
+    "categoria": "Historia"
+  },
+  {
+    "id": 4,
+    "nombre": "🍽️ Ruta Gastronómica Tradicional",
+    "descripcion": "Sabores auténticos del Perú, desde mercados de barrio y bodegas pisqueras hasta ferias vivenciales.",
+    "lugares_ids": [
+      10,
+      24,
+      42,
+      53
+    ],
+    "dificultad": "Moderada",
+    "duracion": "2 días",
+    "region": "Costera",
+    "categoria": "Gastronomía"
+  },
+  {
+    "id": 5,
+    "nombre": "🌄 Ruta Imperial de los Incas",
+    "descripcion": "El corazón sagrado del Tahuantinsuyo: Machu Picchu, templos incas, andenerías de Moray y salineras.",
+    "lugares_ids": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      59,
+      60
+    ],
+    "dificultad": "Moderada",
+    "duracion": "4-5 días",
+    "region": "Cusco",
+    "categoria": "Cultura e Historia"
+  },
+  {
+    "id": 6,
+    "nombre": "🏜️ Ruta del Desierto y Oasis del Sur",
+    "descripcion": "Enigmas en la arena: Líneas de Nazca, el oasis de Huacachina, la Reserva de Paracas y el Cañón de los Perdidos.",
+    "lugares_ids": [
+      22,
+      23,
+      25,
+      44,
+      46,
+      70
+    ],
+    "dificultad": "Moderada",
+    "duracion": "2-3 días",
+    "region": "Ica",
+    "categoria": "Aventura"
+  },
+  {
+    "id": 7,
+    "nombre": "📜 Ruta del Explorador Cultural",
+    "descripcion": "Para apasionados del arte virreinal, museos de oro y templos precolombinos de costa a sierra.",
+    "lugares_ids": [
+      1,
+      2,
+      4,
+      13,
+      18,
+      19,
+      28,
+      41,
+      50,
+      55,
+      68
+    ],
+    "dificultad": "Avanzada",
+    "duracion": "7-10 días",
+    "region": "Multirregional",
+    "categoria": "Cultura"
+  },
+  {
+    "id": 8,
+    "nombre": "🌿 Ruta del Explorador Natural",
+    "descripcion": "Trekking en glaciares andinos, reservas marinas protegidas y biodiversidad pura de los Andes a la Selva.",
+    "lugares_ids": [
+      6,
+      17,
+      20,
+      21,
+      25,
+      29,
+      33,
+      35,
+      54,
+      56,
+      61,
+      64,
+      66
+    ],
+    "dificultad": "Avanzada",
+    "duracion": "10-14 días",
+    "region": "Multirregional",
+    "categoria": "Naturaleza"
+  },
+  {
+    "id": 9,
+    "nombre": "🏙️ Ruta del Explorador Urbano",
+    "descripcion": "Boulevares de arte callejero, arquitectura histórica, parques icónicos y malecones vibrantes.",
+    "lugares_ids": [
+      5,
+      8,
+      9,
+      10,
+      19,
+      28,
+      47,
+      48,
+      52,
+      53,
+      57,
+      65
+    ],
+    "dificultad": "Fácil",
+    "duracion": "4-6 días",
+    "region": "Multirregional",
+    "categoria": "Ciudad"
+  },
+  {
+    "id": 10,
+    "nombre": "🍜 Ruta del Explorador Gastronómico",
+    "descripcion": "El gran recorrido culinario peruano por chifas, huariques marinos, dulces conventuales y pisco artesanal.",
+    "lugares_ids": [
+      10,
+      24,
+      42,
+      53
+    ],
+    "dificultad": "Fácil",
+    "duracion": "2-3 días",
+    "region": "Gastronómica",
+    "categoria": "Gastronomía"
+  },
+  {
+    "id": 11,
+    "nombre": "🌋 Ruta de la Ciudad Blanca y el Colca",
+    "descripcion": "Monasterios de sillar blanco en Arequipa, vistas al volcán Misti y el vuelo del cóndor en el Cañón del Colca.",
+    "lugares_ids": [
+      18,
+      19,
+      57,
+      58,
+      20,
+      21
+    ],
+    "dificultad": "Moderada",
+    "duracion": "3 días",
+    "region": "Arequipa",
+    "categoria": "Aventura y Cultura"
+  },
+  {
+    "id": 12,
+    "nombre": "🦙 Ruta Sagrada del Lago Titicaca",
+    "descripcion": "Navega en el lago navegable más alto del mundo: islas flotantes de totora, torres de Sillustani y turismo vivencial.",
+    "lugares_ids": [
+      29,
+      30,
+      31,
+      62,
+      63
+    ],
+    "dificultad": "Moderada",
+    "duracion": "2-3 días",
+    "region": "Puno",
+    "categoria": "Cultura y Naturaleza"
+  },
+  {
+    "id": 13,
+    "nombre": "🏔️ Ruta de la Cordillera Blanca y Chavín",
+    "descripcion": "El techo del Perú: lagunas de ensueño al pie del Huascarán y el milenario templo subterráneo de Chavín.",
+    "lugares_ids": [
+      54,
+      55,
+      56
+    ],
+    "dificultad": "Avanzada",
+    "duracion": "3 días",
+    "region": "Áncash",
+    "categoria": "Trekking y Arqueología"
+  },
+  {
+    "id": 14,
+    "nombre": "🐆 Ruta de la Gran Amazonía",
+    "descripcion": "Inmersión en la selva virgen: humedales de Pacaya Samiria, la fortaleza de Kuélap en las nubes y nutrias gigantes de Tambopata.",
+    "lugares_ids": [
+      32,
+      33,
+      34,
+      35,
+      64,
+      65,
+      66
+    ],
+    "dificultad": "Avanzada",
+    "duracion": "6-8 días",
+    "region": "Amazonas",
+    "categoria": "Selva y Vida Silvestre"
+  },
+  {
+    "id": 15,
+    "nombre": "🏺 Ruta Moche, Chimú y Señores del Norte",
+    "descripcion": "Las grandes civilizaciones del norte: las murallas de Chan Chan, Huacas de la Luna y las tumbas doradas de Sipán.",
+    "lugares_ids": [
+      26,
+      27,
+      28,
+      40,
+      41,
+      71
+    ],
+    "dificultad": "Fácil",
+    "duracion": "3-4 días",
+    "region": "Norte",
+    "categoria": "Arqueología"
+  },
+  {
+    "id": 16,
+    "nombre": "🏄 Ruta del Sol Eterno y Playas del Norte",
+    "descripcion": "Playas cálidas, olas de clase mundial, avistamiento de ballenas jorobadas y atardeceres en el Pacífico norteño.",
+    "lugares_ids": [
+      37,
+      38,
+      39
+    ],
+    "dificultad": "Fácil",
+    "duracion": "3 días",
+    "region": "Piura",
+    "categoria": "Playa y Relax"
+  },
+  {
+    "id": 17,
+    "nombre": "☕ Ruta de las Cascadas y Selva Central",
+    "descripcion": "Aromas a café de especialidad, pozas cristalinas de Bayoz y la hermosa Laguna Azul en medio de vegetación tropical.",
+    "lugares_ids": [
+      67,
+      34,
+      35
+    ],
+    "dificultad": "Fácil",
+    "duracion": "2-3 días",
+    "region": "Selva Central",
+    "categoria": "Naturaleza y Relax"
+  },
+  {
+    "id": 18,
+    "nombre": "⚔️ Ruta Bicentenario y de la Libertad",
+    "descripcion": "Homenaje a la independencia del Perú: desde el centro virreinal de Lima hasta el campo de batalla de Ayacucho y el imperio Wari.",
+    "lugares_ids": [
+      1,
+      2,
+      3,
+      68,
+      69
+    ],
+    "dificultad": "Moderada",
+    "duracion": "3-4 días",
+    "region": "Lima y Ayacucho",
+    "categoria": "Historia Patria"
+  },
+  {
+    "id": 19,
+    "nombre": "💎 Ruta de las Joyas Secretas del Perú",
+    "descripcion": "Tesoros fuera del circuito convencional: torres funerarias, cañones vírgenes, canteras de piedra blanca y civilizaciones perdidas.",
+    "lugares_ids": [
+      53,
+      58,
+      62,
+      63,
+      69,
+      70,
+      71,
+      72,
+      73
+    ],
+    "dificultad": "Moderada",
+    "duracion": "5-7 días",
+    "region": "Multirregional",
+    "categoria": "Joyas Ocultas"
+  },
+  {
+    "id": 20,
+    "nombre": "🧭 El Gran Tour del Perú",
+    "descripcion": "La expedición definitiva: cruce integral por los mayores hitos patrimoniales, desiertos, cordilleras y lagos del país.",
+    "lugares_ids": [
+      1,
+      25,
+      23,
+      22,
+      18,
+      21,
+      12,
+      14,
+      29
+    ],
+    "dificultad": "Avanzada",
+    "duracion": "12-15 días",
+    "region": "Nacional",
+    "categoria": "Gran Expedición"
+  }
+]

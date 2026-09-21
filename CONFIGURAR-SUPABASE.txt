@@ -1,0 +1,50 @@
+PERUTURISMO GO + SUPABASE
+=========================
+
+1. Entra a https://supabase.com y crea un proyecto.
+2. Abre SQL Editor y ejecuta todo el contenido de `supabase.sql`.
+   Si ya lo ejecutaste antes, vuelve a ejecutarlo: ahora agrega `username`.
+3. Ve a Project Settings > API.
+4. Copia:
+   - Project URL
+   - Publishable key (o anon key)
+5. Abre `js/supabase-config.js`.
+6. Reemplaza los dos valores de ejemplo.
+7. Abre `INICIAR.bat`.
+
+La app permite explorar como invitado. El usuario solo necesita registrarse
+cuando quiere guardar favoritos, visitas y progreso entre dispositivos.
+Durante el registro puede elegir un username público de 3 a 24 caracteres.
+Supabase puede pedir confirmación de correo antes del primer inicio de sesión.
+
+CONFIGURACIÓN DE AUTH
+=====================
+
+En Supabase > Authentication > URL Configuration agrega:
+
+- Site URL: la URL final de tu despliegue.
+- Redirect URLs: la URL final y, para pruebas, `http://localhost:8000`.
+
+En Authentication > Providers > Email decide si exigir confirmación de correo.
+Para producción se recomienda mantenerla activada.
+
+PARA PUBLICAR
+==============
+
+Sube toda la carpeta a Netlify, Vercel, GitHub Pages, Cloudflare Pages o tu
+hosting estático. No subas claves secretas: la clave publishable/anon sí puede
+estar en el navegador, pero las políticas RLS de `supabase.sql` son obligatorias.
+
+El archivo `servidor.py` solo sirve para probar localmente. No es necesario en
+producción.
+
+CHECKLIST ANTES DE PUBLICAR
+===========================
+
+- [ ] Ejecutar `supabase.sql` sin errores.
+- [ ] Pegar Project URL y Publishable/anon key en `js/supabase-config.js`.
+- [ ] Verificar que nunca se use la service_role key en el navegador.
+- [ ] Configurar Site URL y Redirect URLs.
+- [ ] Publicar mediante HTTPS para que funcione la geolocalización.
+- [ ] Probar registro, confirmación, login, logout y sincronización en otro navegador.
+- [ ] Comprobar que el mapa y las notificaciones tienen permisos explícitos.

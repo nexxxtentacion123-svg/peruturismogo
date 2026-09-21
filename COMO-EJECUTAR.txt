@@ -1,0 +1,13 @@
+PERUTURISMO GO
+================
+
+No abras index.html directamente con doble clic: los navegadores bloquean la
+carga de lugares.json y rutas.json desde file://.
+
+Forma sencilla (Windows):
+1. Configura Supabase siguiendo `CONFIGURAR-SUPABASE.txt` si quieres cuentas
+   y sincronización entre dispositivos. También puedes explorar como invitado.
+2. Haz doble clic en `INICIAR.bat`.
+3. Se abrirá automáticamente `http://localhost:8000`.
+
+También puedes usar la extensión Live Server de Visual Studio Code.
