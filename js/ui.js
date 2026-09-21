@@ -18,7 +18,8 @@ import {
     obtenerNivel,
     puntosPorCheckIn,
     RADIO_PRESENCIAL,
-    getLugarPorId
+    getLugarPorId,
+    coloresRutas
 } from './state.js';
 import { escaparHtml } from './utils/sanitize.js';
 import { calcularDistancia, formatearDistancia } from './utils/geoUtils.js';
