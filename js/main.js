@@ -57,6 +57,7 @@ import {
     solicitarPermisoNotificaciones
 } from './geo.js';
 import { initAuth, guardarProgresoRemoto } from './auth.js';
+import { recomendarLugares, crearExplicacion, obtenerPresupuestoTexto } from './recommendations.js';
 
 window.peruAuth = { guardarProgresoRemoto };
 
@@ -65,6 +66,50 @@ function registrarServiceWorker() {
     navigator.serviceWorker.register('./service-worker.js')
         .then(() => console.info('PWA: service worker registrado'))
         .catch(error => console.warn('PWA: no se pudo registrar el service worker', error));
+}
+
+function initPlanificador(lugares) {
+    const modal = document.getElementById('modal-planificador');
+    const form = document.getElementById('form-planificador');
+    const resultado = document.getElementById('planificador-resultado');
+    document.getElementById('btn-planificar')?.addEventListener('click', () => {
+        modal?.classList.remove('hidden');
+        document.getElementById('plan-presupuesto')?.focus();
+    });
+    document.getElementById('planificador-cerrar')?.addEventListener('click', () => modal?.classList.add('hidden'));
+    modal?.addEventListener('click', event => {
+        if (event.target === modal) modal.classList.add('hidden');
+    });
+    form?.addEventListener('submit', event => {
+        event.preventDefault();
+        const datos = new FormData(form);
+        const preferencias = {
+            presupuesto: String(datos.get('presupuesto') || 'medio'),
+            dias: Number(datos.get('dias') || 3),
+            region: String(datos.get('region') || '').trim(),
+            intereses: datos.getAll('intereses'),
+            ritmo: String(datos.get('ritmo') || 'activo')
+        };
+        const recomendaciones = recomendarLugares(lugares, preferencias);
+        if (!recomendaciones.length) {
+            resultado.innerHTML = '<p class="planificador-vacio">No encontramos coincidencias todavía. Prueba quitando la región o eligiendo otro interés.</p>';
+            return;
+        }
+        resultado.innerHTML = `
+            <div class="planificador-resumen"><strong>Tu plan de ${preferencias.dias} día${preferencias.dias === 1 ? '' : 's'}</strong><span>Presupuesto ${obtenerPresupuestoTexto(preferencias.presupuesto)}</span></div>
+            <div class="planificador-lista">${recomendaciones.map(lugar => `
+                <article class="planificador-item">
+                    <div><strong>${lugar.nombre}</strong><span>${lugar.region}${lugar.distrito ? ` · ${lugar.distrito}` : ''}</span><p>${crearExplicacion(lugar, preferencias)}</p></div>
+                    <button type="button" class="btn-plan-lugar" data-lugar-id="${lugar.id}">Ver lugar</button>
+                </article>`).join('')}</div>
+            <small class="planificador-nota">Costos orientativos: S/ ${recomendaciones[0].costoEstimado}. Verifica tarifas, horarios y transporte antes de viajar.</small>`;
+        resultado.querySelectorAll('[data-lugar-id]').forEach(button => {
+            button.addEventListener('click', () => {
+                modal.classList.add('hidden');
+                abrirModalLugar(Number(button.dataset.lugarId));
+            });
+        });
+    });
 }
 
 window.addEventListener('peruturismo:sync-error', () => {
@@ -134,6 +179,7 @@ async function init() {
     initTabs();
     initVistaMovil();
     initControlesMovil();
+    initPlanificador(lugares);
     initFechaInicio();
 
     // 6. Actualizar Interfaz

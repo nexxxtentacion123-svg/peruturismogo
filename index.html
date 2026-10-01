@@ -49,6 +49,9 @@
             <button type="button" id="btn-abrir-auth" class="btn-auth-header">
                 <i class="fas fa-right-to-bracket"></i><span>Guardar progreso</span>
             </button>
+            <button type="button" id="btn-planificar" class="btn-planificar">
+                <i class="fas fa-wand-magic-sparkles"></i><span>Planifica mi viaje</span>
+            </button>
             <div class="stats">
                 <span class="stat-pill"><i class="fas fa-flag-checkered"></i> Visitados: <span class="numero" id="contador-visitas">0</span></span>
                 <span class="stat-pill"><i class="fas fa-walking"></i> Total: <span class="numero" id="total-lugares">0</span></span>
@@ -306,6 +309,41 @@
         <div class="modal-content" role="dialog" aria-modal="true" aria-label="Detalle del lugar turístico">
             <button class="modal-cerrar" id="modal-cerrar"><i class="fas fa-times"></i></button>
             <div id="modal-body"></div>
+        </div>
+
+        <div class="modal-overlay hidden" id="modal-planificador">
+            <section class="modal-content planificador-card" role="dialog" aria-modal="true" aria-labelledby="planificador-titulo">
+                <button type="button" class="modal-cerrar" id="planificador-cerrar" aria-label="Cerrar planificador"><i class="fas fa-times"></i></button>
+                <p class="bienvenida-kicker">Recomendador local</p>
+                <h2 id="planificador-titulo">Planifica tu próxima expedición</h2>
+                <p class="planificador-lead">Cuéntanos qué buscas y te mostraremos destinos del catálogo de PerúTurismo GO. No usamos una IA externa ni enviamos tus datos.</p>
+                <form id="form-planificador" class="planificador-form">
+                    <label for="plan-presupuesto">Presupuesto por actividad</label>
+                    <select id="plan-presupuesto" name="presupuesto">
+                        <option value="bajo">Económico</option>
+                        <option value="medio" selected>Moderado</option>
+                        <option value="alto">Amplio</option>
+                    </select>
+                    <label for="plan-dias">¿Cuántos días viajarás?</label>
+                    <input id="plan-dias" name="dias" type="number" min="1" max="30" value="3" required>
+                    <label for="plan-region">Región o provincia preferida (opcional)</label>
+                    <input id="plan-region" name="region" type="text" maxlength="40" placeholder="Ej. Lima, Cusco, Áncash">
+                    <fieldset>
+                        <legend>¿Qué te interesa?</legend>
+                        <label><input type="checkbox" name="intereses" value="Cultural"> Cultura e historia</label>
+                        <label><input type="checkbox" name="intereses" value="Naturaleza"> Naturaleza</label>
+                        <label><input type="checkbox" name="intereses" value="Aventura"> Aventura</label>
+                        <label><input type="checkbox" name="intereses" value="Gastronomía"> Gastronomía</label>
+                    </fieldset>
+                    <label for="plan-ritmo">Ritmo de viaje</label>
+                    <select id="plan-ritmo" name="ritmo">
+                        <option value="tranquilo">Tranquilo y flexible</option>
+                        <option value="activo" selected>Activo</option>
+                    </select>
+                    <button class="btn-empezar" type="submit"><i class="fas fa-compass"></i> Recomiéndame destinos</button>
+                </form>
+                <div id="planificador-resultado" class="planificador-resultado" aria-live="polite"></div>
+            </section>
         </div>
     </div>
 
