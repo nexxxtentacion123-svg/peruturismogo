@@ -1,4 +1,4 @@
-const CACHE_NAME = 'peruturismo-shell-v1';
+const CACHE_NAME = 'peruturismo-shell-v2';
 const SHELL = [
   './',
   './index.html',
@@ -57,12 +57,12 @@ self.addEventListener('fetch', event => {
   }
 
   event.respondWith(
-    caches.match(request).then(cached => cached || fetch(request).then(response => {
-      if (response.ok && response.type === 'basic') {
+    fetch(request).then(response => {
+      if (response.ok && (response.type === 'basic' || isPublicModule)) {
         const copy = response.clone();
         caches.open(CACHE_NAME).then(cache => cache.put(request, copy));
       }
       return response;
-    }).catch(() => caches.match('./index.html')))
+    }).catch(() => caches.match(request).then(cached => cached || caches.match('./index.html')))
   );
 });
