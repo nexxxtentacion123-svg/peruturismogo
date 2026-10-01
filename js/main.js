@@ -128,7 +128,9 @@ function initPlanificador(lugares) {
             transporte: actual === 'transporte' ? datos.get('transporte') : preferencias.transporte
         });
         if (actual === 'salida' && !preferencias.salida) {
+            document.getElementById('plan-region')?.setCustomValidity('Indica una ciudad o región de salida.');
             form.reportValidity();
+            document.getElementById('plan-region')?.setCustomValidity('');
             return;
         }
         if (pasoActual < pasos.length - 1) {

@@ -235,22 +235,25 @@ export async function cargarLugares() {
         if (window.location.protocol === 'file:') {
             throw new Error('La app necesita ejecutarse desde un servidor local, no desde file://');
         }
-        const [resp, extraResp, limaResp] = await Promise.all([
+        const [resp, extraResp, limaResp, ancashResp] = await Promise.all([
             fetch('lugares.json'),
             fetch('lugares-extra.json'),
-            fetch('lugares-lima.json')
+            fetch('lugares-lima.json'),
+            fetch('lugares-ancash.json')
         ]);
         if (!resp.ok) throw new Error('No se pudo cargar lugares.json');
         const base = await resp.json();
         if (!Array.isArray(base)) throw new Error('lugares.json no contiene una lista válida');
         if (!extraResp.ok) throw new Error('No se pudo cargar lugares-extra.json');
         if (!limaResp.ok) throw new Error('No se pudo cargar lugares-lima.json');
+        if (!ancashResp.ok) throw new Error('No se pudo cargar lugares-ancash.json');
         const extra = await extraResp.json();
         const lima = await limaResp.json();
-        if (!Array.isArray(extra) || !Array.isArray(lima)) {
+        const ancash = await ancashResp.json();
+        if (!Array.isArray(extra) || !Array.isArray(lima) || !Array.isArray(ancash)) {
             throw new Error('Uno de los catálogos turísticos no contiene una lista válida');
         }
-        const unicos = new Map([...base, ...extra, ...lima].map(lugar => [lugar.id, lugar]));
+        const unicos = new Map([...base, ...extra, ...lima, ...ancash].map(lugar => [lugar.id, lugar]));
         const listaLugares = [...unicos.values()];
         setLugares(listaLugares);
         return listaLugares;

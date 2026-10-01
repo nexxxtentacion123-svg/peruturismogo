@@ -1,4 +1,4 @@
-const CACHE_NAME = 'peruturismo-shell-v2';
+const CACHE_NAME = 'peruturismo-shell-v3';
 const SHELL = [
   './',
   './index.html',
@@ -7,6 +7,7 @@ const SHELL = [
   './lugares.json',
   './lugares-extra.json',
   './lugares-lima.json',
+  './lugares-ancash.json',
   './rutas.json',
   './js/main.js',
   './js/state.js',
