@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Explora el Perú, descubre lugares, completa rutas y construye tu bitácora turística." />
     <meta name="theme-color" content="#123c32" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <link rel="manifest" href="manifest.json" />
     <link rel="icon" type="image/png" href="assets/favicon.png" />
     <link rel="apple-touch-icon" href="assets/kuntur-avatar.png" />
 
@@ -93,7 +97,8 @@
         </section>
     </div>
 
-    <div class="contenedor">
+    <main class="contenedor">
+        <div id="estado-carga" class="estado-carga hidden" role="alert" aria-live="assertive"></div>
 
         <div class="mapa-wrapper">
             <div id="mapa"></div>
@@ -294,11 +299,11 @@
             </div>
 
         </div>
-    </div>
+    </main>
 
     <!-- ===== MODAL DE DETALLE DE LUGAR ===== -->
     <div class="modal-overlay hidden" id="modal-lugar">
-        <div class="modal-content">
+        <div class="modal-content" role="dialog" aria-modal="true" aria-label="Detalle del lugar turístico">
             <button class="modal-cerrar" id="modal-cerrar"><i class="fas fa-times"></i></button>
             <div id="modal-body"></div>
         </div>
