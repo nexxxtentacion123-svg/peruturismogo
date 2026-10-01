@@ -57,6 +57,14 @@ test('Catálogo ampliado de Lima y PWA', () => {
     assert.match(fs.readFileSync(new URL('../service-worker.js', import.meta.url), 'utf8'), /No intercept.*Supabase|Supabase/);
 });
 
+test('El modal del planificador es hermano del modal de lugar', () => {
+    const html = fs.readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+    assert.match(
+        html,
+        /id="modal-body"><\/div>\s*<\/div>\s*<\/div>\s*<div class="modal-overlay hidden" id="modal-planificador">/
+    );
+});
+
 test('Recomendador local por preferencias', () => {
     const lugares = [
         { id: 1, nombre: 'Museo de Lima', region: 'Lima', categoria: 'Museo', descripcion: 'Historia y cultura', tiposExplorador: ['Cultural'], precio: 'S/ 20' },
