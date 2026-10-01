@@ -1,4 +1,4 @@
-const CACHE_NAME = 'peruturismo-shell-v3';
+const CACHE_NAME = 'peruturismo-shell-v4';
 const SHELL = [
   './',
   './index.html',
@@ -16,6 +16,8 @@ const SHELL = [
   './js/filters.js',
   './js/geo.js',
   './js/auth.js',
+  './js/auth-redirect.js',
+  './js/catalog.js',
   './js/recommendations.js',
   './js/gamification.js',
   './js/supabase-config.js',

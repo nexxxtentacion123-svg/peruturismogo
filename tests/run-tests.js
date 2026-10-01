@@ -11,12 +11,26 @@ import { calcularDistancia, formatearDistancia } from '../js/utils/geoUtils.js';
 import { obtenerNivel, puntosPorCheckIn } from '../js/state.js';
 import { formatearRangoCosto, normalizarPreferencias, obtenerLimitaciones } from '../js/recommendations.js';
 import { recomendarLugares, crearExplicacion } from '../js/recommendations.js';
+import { assertCatalogoValido, consolidarCatalogo, distanciaCatalogo } from '../js/catalog.js';
+import { esOrigenOAuthPermitido, obtenerRedirectOAuth } from '../js/auth-redirect.js';
 
 test('Sanitización de HTML', () => {
     assert.equal(escaparHtml('<script>alert("xss")</script>'), '&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;');
     assert.equal(escaparHtml('Lima & Cusco'), 'Lima &amp; Cusco');
     assert.equal(escaparHtml("It's fine"), 'It&#039;s fine');
     assert.equal(escaparHtml(null), '');
+});
+
+test('Redirect de Google usa solo orígenes seguros', () => {
+    assert.equal(esOrigenOAuthPermitido('http://localhost:8000'), true);
+    assert.equal(esOrigenOAuthPermitido('https://peru-turismo-go.netlify.app'), true);
+    assert.equal(esOrigenOAuthPermitido('https://preview-123--peru-turismo-go.netlify.app'), true);
+    assert.equal(esOrigenOAuthPermitido('https://evil.example'), false);
+    assert.equal(
+        obtenerRedirectOAuth({ href: 'https://peru-turismo-go.netlify.app/index.html?tab=rutas#auth' }),
+        'https://peru-turismo-go.netlify.app/index.html?tab=rutas'
+    );
+    assert.equal(obtenerRedirectOAuth({ href: 'file:///C:/peru/index.html' }), null);
 });
 
 test('Cálculo de Distancia (Haversine)', () => {
@@ -56,7 +70,7 @@ test('Catálogo ampliado de Lima y PWA', () => {
     assert.equal(manifest.display, 'standalone');
     const serviceWorker = fs.readFileSync(new URL('../service-worker.js', import.meta.url), 'utf8');
     assert.match(serviceWorker, /No intercept.*Supabase|Supabase/);
-    assert.match(serviceWorker, /peruturismo-shell-v3/);
+    assert.match(serviceWorker, /peruturismo-shell-v4/);
     assert.match(serviceWorker, /fetch\(request\)\.then/);
 });
 
@@ -69,6 +83,42 @@ test('Catálogo de Áncash integrado sin IDs duplicados', () => {
     assert.ok(ancash.every(lugar => Number.isFinite(lugar.lat) && Number.isFinite(lugar.lng)));
     assert.ok(ancash.some(lugar => lugar.provincia === 'Huaraz'));
     assert.ok(ancash.some(lugar => lugar.provincia === 'Huari'));
+});
+
+test('Consolidación del catálogo: IDs, nombres y coordenadas', () => {
+    const archivos = ['lugares.json', 'lugares-extra.json', 'lugares-lima.json', 'lugares-ancash.json'];
+    const catalogo = archivos.flatMap(archivo => JSON.parse(fs.readFileSync(new URL(`../${archivo}`, import.meta.url))));
+    assert.equal(catalogo.length, 193);
+    assert.doesNotThrow(() => assertCatalogoValido(catalogo));
+    assert.equal(catalogo.filter(lugar => lugar.nombre === 'Laguna 69').length, 1);
+    assert.deepEqual(
+        catalogo.filter(lugar => lugar.nombre === 'Cañón de los Perdidos').map(lugar => lugar.id),
+        [70, 82]
+    );
+
+    const duplicado = [{ id: 1, nombre: 'Mirador', lat: -12, lng: -77 }, { id: 2, nombre: 'Mirador', lat: -12.001, lng: -77.001 }];
+    assert.throws(() => assertCatalogoValido(duplicado), /Nombre duplicado/);
+    assert.ok(distanciaCatalogo(duplicado[0], duplicado[1]) < 1);
+    assert.throws(() => assertCatalogoValido([
+        { id: 7, nombre: 'Uno', lat: -12, lng: -77 },
+        { id: 7, nombre: 'Dos', lat: -13, lng: -76 }
+    ]), /ID duplicado/);
+    assert.throws(() => assertCatalogoValido([
+        { id: 1, nombre: 'Uno', lat: -12, lng: -77 },
+        { id: 2, nombre: 'Dos', lat: -12, lng: -77 }
+    ]), /Coordenadas sospechosamente repetidas/);
+    assert.doesNotThrow(() => assertCatalogoValido([
+        { id: 1, nombre: 'Cañón', lat: -12, lng: -77 },
+        { id: 2, nombre: 'Cañón', lat: -15, lng: -75 }
+    ]));
+    const fusionado = consolidarCatalogo([
+        { id: 1, nombre: 'Laguna', lat: -9, lng: -77, descripcion: 'corta' },
+        { id: 2, nombre: 'Laguna', lat: -9.001, lng: -77.001, descripcion: 'larga', precio: 'Gratis', tiposExplorador: ['Aventura'] }
+    ]);
+    assert.equal(fusionado.length, 1);
+    assert.equal(fusionado[0].id, 1);
+    assert.match(fusionado[0].descripcion, /corta.*larga/);
+    assert.deepEqual(fusionado[0].tiposExplorador, ['Aventura']);
 });
 
 test('El planificador avanza con pasos posteriores ocultos', () => {

@@ -2,6 +2,8 @@
  * Módulo de Gestión de Estado y Almacenamiento Local (localStorage)
  */
 
+import { consolidarCatalogo, assertCatalogoValido } from './catalog.js';
+
 // Estado global de la aplicación
 const state = {
     lugares: [],
@@ -253,8 +255,8 @@ export async function cargarLugares() {
         if (!Array.isArray(extra) || !Array.isArray(lima) || !Array.isArray(ancash)) {
             throw new Error('Uno de los catálogos turísticos no contiene una lista válida');
         }
-        const unicos = new Map([...base, ...extra, ...lima, ...ancash].map(lugar => [lugar.id, lugar]));
-        const listaLugares = [...unicos.values()];
+        const listaLugares = consolidarCatalogo([...base, ...extra, ...lima, ...ancash]);
+        assertCatalogoValido(listaLugares);
         setLugares(listaLugares);
         return listaLugares;
     } catch (error) {

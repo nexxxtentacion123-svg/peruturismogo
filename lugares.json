@@ -1210,13 +1210,15 @@
   },
   {
     "id": 54,
-    "nombre": "Laguna 69 (Parque Nacional Huascarán)",
+    "nombre": "Laguna 69",
     "region": "Áncash",
+    "provincia": "Yungay",
     "lat": -9.0069,
     "lng": -77.6167,
     "categoria": "Naturaleza",
     "tiposExplorador": [
-      "Naturaleza"
+      "Naturaleza",
+      "Aventura"
     ],
     "descripcion": "Mágica laguna de aguas turquesas a 4,600 msnm al pie de impresionantes glaciares de la Cordillera Blanca.",
     "horario": "6:00 - 17:00 (Trekking diurno)",
