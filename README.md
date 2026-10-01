@@ -203,7 +203,28 @@ Si deseas habilitar la persistencia de usuarios en la nube para sincronizar dato
    export const SUPABASE_URL = "https://tu-proyecto.supabase.co";
    export const SUPABASE_ANON_KEY = "tu-clave-anonima-publica";
    ```
-5. En Supabase > **Authentication ➔ URL Configuration**, agrega `http://localhost:8000` a las *Redirect URLs*.
+5. En **Authentication ➔ Providers ➔ Google**, habilita el proveedor y pega el
+   *Client ID* y *Client Secret* creados en Google Cloud Console (OAuth client
+   de tipo **Web application**). En Google agrega como *Authorized redirect URI*
+   la URL de callback de Supabase:
+   `https://<tu-proyecto>.supabase.co/auth/v1/callback`.
+6. En **Authentication ➔ URL Configuration** configura:
+   - **Site URL:** `https://peru-turismo-go.netlify.app`
+   - **Redirect URLs:** `https://peru-turismo-go.netlify.app/**`,
+     `http://localhost:8000/**` y cada URL de preview de Netlify que uses
+     (por ejemplo, `https://deploy-id--peru-turismo-go.netlify.app/**`).
+     La aplicación solo devuelve a Google la URL actual cuando es HTTPS y está
+     en la allowlist de producción, o cuando es un origen loopback HTTP para
+     desarrollo local; no acepta redirecciones arbitrarias.
+7. En Netlify no necesitas exponer el Client Secret: pertenece únicamente a
+   Supabase. Publica los archivos estáticos normalmente y conserva en
+   `js/supabase-config.js` solo la URL y la clave **anon/publishable**, que no
+   es un secreto cuando RLS está configurado. No pongas claves de Google en el
+   repositorio.
+
+OAuth y sincronización requieren conexión. Si Supabase no está configurado, si
+el navegador está offline o si el origen no está permitido, el flujo muestra un
+error explícito y el acceso por correo/contraseña sigue disponible.
 
 ---
 
@@ -219,11 +240,16 @@ Puedes alojar este proyecto en cualquier plataforma de hosting estático gratuit
   - Simplemente conecta tu repositorio y despliega. No se requiere comando de compilación (cero dependencias de empaquetado).
 
 El catálogo se carga desde `lugares.json`, `lugares-extra.json`, `lugares-lima.json`
-y `lugares-ancash.json`. Este último incorpora más de 50 destinos de Áncash
-(Cordillera Blanca, Huayhuash, Callejón de Huaylas, Conchucos y costa) con
-coordenadas de referencia. Confirma antes de viajar los accesos, horarios,
-precios, clima y condiciones de las rutas: el catálogo es orientativo y no
-reemplaza la información oficial ni la de los operadores locales.
+y `lugares-ancash.json`, y se consolida en memoria mediante
+[`js/catalog.js`](js/catalog.js). La consolidación actual deja **193 fichas**
+(9 duplicados retirados); conserva el primer ID estable y fusiona los campos
+faltantes de las fichas equivalentes. Consulta el
+[reporte de consolidación](CATALOG-CONSOLIDATION.md) para la metodología y las
+limitaciones: nombres iguales en regiones distintas siguen siendo lugares
+separados y las coordenadas son puntos de referencia, no límites exactos.
+Confirma antes de viajar los accesos, horarios, precios, clima y condiciones
+de las rutas: el catálogo es orientativo y no reemplaza la información oficial
+ni la de los operadores locales.
 
 ### Producción y previews de Netlify
 

@@ -1,6 +1,7 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 import { guardarStorageJson, leerStorageJson } from './state.js';
 import { SUPABASE_URL, SUPABASE_ANON_KEY, SUPABASE_CONFIGURED } from './supabase-config.js';
+import { obtenerRedirectOAuth } from './auth-redirect.js';
 
 export const supabase = SUPABASE_CONFIGURED
     ? createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
@@ -10,6 +11,7 @@ let session = null;
 let syncTimer = null;
 let syncInFlight = null;
 let username = '';
+let authInitialized = false;
 
 export function usuarioActual() {
     return session?.user || null;
@@ -102,6 +104,8 @@ function renderAuth(userSession, callbacks) {
 }
 
 export async function initAuth(callbacks = {}) {
+    if (authInitialized) return;
+    authInitialized = true;
     const form = document.getElementById('form-auth');
     const modeButton = document.getElementById('btn-cambiar-auth');
     const title = document.getElementById('auth-titulo');
@@ -111,12 +115,23 @@ export async function initAuth(callbacks = {}) {
     const openAuth = document.getElementById('btn-abrir-auth');
     const closeAuth = document.getElementById('btn-cerrar-auth');
     const guestAuth = document.getElementById('btn-explorar-invitado');
+    const googleAuth = document.getElementById('btn-auth-google');
     let mode = 'login';
 
     const showError = message => {
         if (!errorBox) return;
         errorBox.textContent = message || '';
         errorBox.classList.toggle('hidden', !message);
+    };
+    const showOAuthError = error => {
+        const message = error?.message || '';
+        if (!navigator.onLine) {
+            showError('No hay conexión. Conéctate a internet para continuar con Google.');
+        } else if (message) {
+            showError(`No se pudo iniciar sesión con Google: ${message}`);
+        } else {
+            showError('No se pudo iniciar sesión con Google. Inténtalo de nuevo.');
+        }
     };
     const openAuthDialog = () => {
         document.getElementById('auth-overlay')?.classList.remove('hidden');
@@ -135,11 +150,42 @@ export async function initAuth(callbacks = {}) {
     if (!supabase) {
         showError('Configura js/supabase-config.js con los datos de tu proyecto Supabase.');
         submit?.removeAttribute('disabled');
+        googleAuth?.setAttribute('disabled', '');
     }
 
     openAuth?.addEventListener('click', openAuthDialog);
     closeAuth?.addEventListener('click', closeAuthDialog);
     guestAuth?.addEventListener('click', closeAuthDialog);
+    googleAuth?.addEventListener('click', async () => {
+        showError('');
+        if (!navigator.onLine) {
+            showOAuthError();
+            return;
+        }
+        const redirectTo = obtenerRedirectOAuth(window.location);
+        if (!redirectTo) {
+            showError('Este origen no está autorizado para iniciar sesión con Google. Usa la URL oficial o configura esta URL en la allowlist.');
+            return;
+        }
+        if (!supabase) {
+            showError('Google no está disponible: configura Supabase antes de iniciar sesión.');
+            return;
+        }
+
+        googleAuth.disabled = true;
+        try {
+            const { error } = await supabase.auth.signInWithOAuth({
+                provider: 'google',
+                options: { redirectTo }
+            });
+            if (error) showOAuthError(error);
+        } catch (error) {
+            console.error('Error iniciando OAuth con Google:', error);
+            showOAuthError(error);
+        } finally {
+            googleAuth.disabled = false;
+        }
+    });
     document.getElementById('auth-overlay')?.addEventListener('click', event => {
         if (event.target.id === 'auth-overlay') closeAuthDialog();
     });
@@ -201,7 +247,18 @@ export async function initAuth(callbacks = {}) {
         callbacks.mostrarToast?.('👋 Bienvenido a PerúTurismo GO');
     });
 
-    logout?.addEventListener('click', () => supabase.auth.signOut());
+    logout?.addEventListener('click', async () => {
+        showError('');
+        try {
+            const { error } = await supabase.auth.signOut();
+            if (error) throw error;
+            username = '';
+            callbacks.mostrarToast?.('Sesión cerrada');
+        } catch (error) {
+            showError('No se pudo cerrar la sesión. Comprueba tu conexión e inténtalo de nuevo.');
+            console.error('Error cerrando sesión Supabase:', error);
+        }
+    });
 
     let data;
     try {
@@ -221,7 +278,7 @@ export async function initAuth(callbacks = {}) {
     renderAuth(data.session, callbacks);
 
     supabase.auth.onAuthStateChange(async (_event, nextSession) => {
-        if (nextSession?.user && !session) {
+        if (nextSession?.user && (!session || session.user?.id !== nextSession.user.id)) {
             try {
                 aplicarProgreso(await cargarProgresoRemoto(nextSession.user.id));
                 username = nextSession.user.user_metadata?.username || '';
@@ -232,8 +289,8 @@ export async function initAuth(callbacks = {}) {
                 showError('Sesión iniciada, pero no se pudo cargar tu progreso.');
                 console.warn(error);
             }
-            if (!nextSession) username = '';
         }
+        if (!nextSession) username = '';
         renderAuth(nextSession, callbacks);
     });
     updateMode();
