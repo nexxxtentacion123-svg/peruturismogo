@@ -75,6 +75,10 @@ A través de un mapa dinámico con cartografía detallada, los viajeros pueden r
 - 📡 **Radar de Exploración:**
   - Detección de proximidad por GPS (geolocalización en tiempo real) que alerta al viajero cuando se encuentra cerca de un punto de interés.
 
+- 🧭 **Planificador de viaje:**
+  - Chat guiado sin API externa que toma presupuesto, duración, región, intereses y ritmo para recomendar destinos del catálogo local.
+  - Las recomendaciones son orientativas y transparentes: los precios, horarios, transporte y disponibilidad deben verificarse antes de viajar.
+
 - 🌓 **Modo Claro / Modo Oscuro:**
   - Paleta de diseño inspirada en los textiles andinos y la naturaleza peruana (Verde Selva `#123c32`, Oro Inti `#f39c12`, Carmesí `#c0392b`).
 
@@ -141,6 +145,8 @@ peruturismo-go/
 ```
 
 La aplicación usa `js/main.js` como único punto de entrada y mantiene la lógica separada por módulos. El antiguo `app.js` fue eliminado: la búsqueda del repositorio confirmó que no estaba referenciado por HTML, scripts, documentación ni configuración; conservarlo habría duplicado la implementación activa.
+
+El planificador vive en `js/recommendations.js`, donde el algoritmo determinista puntúa coincidencias del catálogo sin enviar preferencias a servicios externos. Es una primera versión preparada para incorporar una IA híbrida en el futuro, siempre detrás de un backend y con el catálogo como fuente de verdad.
 
 ### Catálogo de Lima
 

@@ -9,7 +9,8 @@ import fs from 'node:fs';
 import { escaparHtml } from '../js/utils/sanitize.js';
 import { calcularDistancia, formatearDistancia } from '../js/utils/geoUtils.js';
 import { obtenerNivel, puntosPorCheckIn } from '../js/state.js';
-import { formatearRangoCosto, normalizarPerfil, obtenerLimitaciones, recomendarDestinos } from '../js/assistant.js';
+import { formatearRangoCosto, normalizarPreferencias, obtenerLimitaciones } from '../js/recommendations.js';
+import { recomendarLugares, crearExplicacion } from '../js/recommendations.js';
 
 test('Sanitización de HTML', () => {
     assert.equal(escaparHtml('<script>alert("xss")</script>'), '&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;');
@@ -56,38 +57,36 @@ test('Catálogo ampliado de Lima y PWA', () => {
     assert.match(fs.readFileSync(new URL('../service-worker.js', import.meta.url), 'utf8'), /No intercept.*Supabase|Supabase/);
 });
 
-const catalogoAsistente = [
-    { id: 1, nombre: 'Museo de Lima', region: 'Lima', categoria: 'Museo', tiposExplorador: ['Cultural'], precio: 'S/ 15.00', transportePublico: 'Metropolitano' },
-    { id: 2, nombre: 'Reserva Verde', region: 'Lima', categoria: 'Reserva', tiposExplorador: ['Naturaleza'], precio: 'S/ 40.00', transportePublico: 'Bus local' },
-    { id: 3, nombre: 'Cañón Andino', region: 'Arequipa', categoria: 'Aventura', tiposExplorador: ['Aventura'], precio: 'S/ 120.00' },
-    { id: 4, nombre: 'Plaza Gratis', region: 'Cusco', categoria: 'Historia', tiposExplorador: ['Cultural'], precio: 'Gratis' },
-    { id: 5, nombre: 'Barrio Cultural', region: 'Lima', categoria: 'Cultura', tiposExplorador: ['Cultural'], precio: 'S/ 10.00' },
-    { id: 6, nombre: 'Parque Urbano', region: 'Lima', categoria: 'Parque', tiposExplorador: ['Urbano'], precio: 'Gratis' }
-];
+test('Recomendador local por preferencias', () => {
+    const lugares = [
+        { id: 1, nombre: 'Museo de Lima', region: 'Lima', categoria: 'Museo', descripcion: 'Historia y cultura', tiposExplorador: ['Cultural'], precio: 'S/ 20' },
+        { id: 2, nombre: 'Cañón', region: 'Arequipa', categoria: 'Aventura', descripcion: 'Naturaleza', tiposExplorador: ['Naturaleza'], precio: 'Consultar' }
+    ];
+    const preferencias = { presupuesto: 'bajo', dias: 3, region: 'Lima', intereses: ['Cultural'], ritmo: 'activo' };
+    const [primero] = recomendarLugares(lugares, preferencias);
+    assert.equal(primero.id, 1);
+    assert.match(crearExplicacion(primero, preferencias), /interés|Lima|presupuesto/i);
+});
 
-test('Asistente: perfil normalizado y filtros por intereses/presupuesto', () => {
-    const perfil = normalizarPerfil({ presupuesto: 'economico', intereses: ['cultura'], salida: 'Lima', duracion: '2-3' });
-    assert.equal(perfil.presupuesto, 'economico');
-    const resultados = recomendarDestinos(catalogoAsistente, perfil, 5);
+test('Recomendador: catálogo vacío, filtros estrictos y límites 3–5', () => {
+    assert.deepEqual(recomendarLugares([], {}, 5), []);
+    const catalogo = [
+        { id: 1, nombre: 'Museo Lima', region: 'Lima', categoria: 'Museo', tiposExplorador: ['Cultural'], precio: 'S/ 15', transportePublico: 'Bus' },
+        { id: 2, nombre: 'Parque Lima', region: 'Lima', categoria: 'Parque', tiposExplorador: ['Naturaleza'], precio: 'Gratis', transportePublico: 'Bus' },
+        { id: 3, nombre: 'Cañón', region: 'Arequipa', categoria: 'Aventura', tiposExplorador: ['Aventura'], precio: 'S/ 120' },
+        { id: 4, nombre: 'Plaza Cusco', region: 'Cusco', categoria: 'Historia', tiposExplorador: ['Cultural'], precio: 'S/ 10' },
+        { id: 5, nombre: 'Barrio Lima', region: 'Lima', categoria: 'Cultura', tiposExplorador: ['Cultural'], precio: 'S/ 10' },
+        { id: 6, nombre: 'Reserva Lima', region: 'Lima', categoria: 'Reserva', tiposExplorador: ['Naturaleza'], precio: 'S/ 20' }
+    ];
+    const perfil = normalizarPreferencias({ presupuesto: 'bajo', intereses: ['Cultural'], salida: 'Lima', transporte: 'publico' });
+    const resultados = recomendarLugares(catalogo, perfil, 5);
     assert.ok(resultados.length >= 1 && resultados.length <= 5);
-    assert.ok(resultados.every(resultado => resultado.dentroPresupuesto));
-    assert.ok(resultados.every(resultado => resultado.intereses.length > 0));
-    assert.ok(resultados.some(resultado => resultado.lugar.id === 1));
-    assert.match(resultados[0].explicacion, /coincide|presupuesto/);
-});
-
-test('Asistente: catálogo vacío y pocos resultados no fallan', () => {
-    assert.deepEqual(recomendarDestinos([], {}, 5), []);
-    const pocos = recomendarDestinos(catalogoAsistente.slice(0, 2), {}, 5);
-    assert.equal(pocos.length, 2);
-    assert.equal(formatearRangoCosto('Gratis'), 'Gratis');
-    assert.equal(formatearRangoCosto('S/ 35.00'), 'S/ 26–80');
-});
-
-test('Asistente: límite siempre entre 3 y 5 cuando hay suficientes datos', () => {
-    assert.equal(recomendarDestinos(catalogoAsistente, {}, 2).length, 3);
-    assert.equal(recomendarDestinos(catalogoAsistente, {}, 9).length, 5);
-    assert.ok(obtenerLimitaciones({ salida: 'Lima' }, catalogoAsistente).some(texto => texto.includes('duración')));
+    assert.ok(resultados.every(lugar => lugar.costoEstimado === null || lugar.costoEstimado <= 25));
+    assert.ok(resultados.every(lugar => lugar._coincidencias.length > 0 && lugar._coincideTransporte));
+    assert.equal(recomendarLugares(catalogo, {}, 2).length, 3);
+    assert.equal(recomendarLugares(catalogo, {}, 9).length, 5);
+    assert.equal(formatearRangoCosto('S/ 35'), 'S/ 26–80');
+    assert.ok(obtenerLimitaciones({ salida: 'Lima' }, catalogo).some(texto => texto.includes('duración')));
 });
 
 console.log('✅ ¡Todas las pruebas unitarias pasaron exitosamente!');
