@@ -1,4 +1,4 @@
-const CACHE_NAME = 'peruturismo-shell-v4';
+const CACHE_NAME = 'peruturismo-shell-v5';
 const SHELL = [
   './',
   './index.html',
@@ -20,7 +20,7 @@ const SHELL = [
   './js/catalog.js',
   './js/recommendations.js',
   './js/gamification.js',
-  './js/supabase-config.js',
+  './js/firebase-config.js',
   './js/utils/geoUtils.js',
   './js/utils/sanitize.js',
   './assets/favicon.png',
@@ -28,7 +28,10 @@ const SHELL = [
   './assets/kuntur-avatar.png',
   './assets/kuntur-mascot-transparent.png'
 ];
-const PUBLIC_MODULES = ['https://esm.sh/@supabase/supabase-js@2'];
+const PUBLIC_MODULES = [
+  'https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js',
+  'https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js'
+];
 
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => Promise.all(

@@ -7,7 +7,7 @@
 
   [![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla%20ES6+-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/es/docs/Web/JavaScript)
   [![Leaflet](https://img.shields.io/badge/Leaflet-v1.9.4-199900?logo=leaflet&logoColor=white)](https://leafletjs.com/)
-  [![Supabase](https://img.shields.io/badge/Supabase-Auth%20%26%20PostgreSQL-3ECF8E?logo=supabase&logoColor=white)](https://supabase.com/)
+  [![Firebase](https://img.shields.io/badge/Firebase-Authentication-FFCA28?logo=firebase&logoColor=black)](https://firebase.google.com/)
   [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
   [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
   [![Brand: Kuntur](https://img.shields.io/badge/Mascota-Kuntur%20el%20C%C3%B3ndor-f39c12)](brand_showcase.html)
@@ -20,7 +20,7 @@
     <a href="#-características-principales">Características</a> •
     <a href="#-embajador-oficial-kuntur">Mascota & Branding</a> •
     <a href="#-inicio-rápido">Inicio Rápido</a> •
-    <a href="#-configuración-con-supabase">Supabase</a> •
+    <a href="#-configuración-con-firebase">Firebase</a> •
     <a href="#-despliegue">Despliegue</a> •
     <a href="brand_showcase.html">Manual de Marca</a>
   </p>
@@ -84,7 +84,8 @@ A través de un mapa dinámico con cartografía detallada, los viajeros pueden r
 
 - ☁️ **Modo Híbrido (Invitado u Online):**
   - **Modo Invitado:** Funciona 100% offline guardando el progreso en `localStorage`.
-  - **Sincronización Cloud (Supabase):** Guarda tu bitácora y continúa tu viaje en cualquier teléfono, tablet o computadora.
+  - **Autenticación Firebase:** Inicia sesión con Google o correo; el progreso
+    sigue guardado localmente en el navegador.
 
 ---
 
@@ -117,12 +118,12 @@ peruturismo-go/
 │   ├── main.js                      # Punto de entrada y orquestación
 │   ├── map.js                       # Controlador Leaflet y capas
 │   ├── ui.js                        # Renderizado del DOM y paneles
-│   ├── auth.js                      # Autenticación con Supabase
+│   ├── auth.js                      # Autenticación con Firebase
 │   ├── gamification.js              # Cálculo de XP, niveles y medallas
 │   ├── filters.js                   # Filtros por categoría y búsqueda
 │   ├── geo.js                       # Geolocalización y radar GPS
 │   ├── state.js                     # Gestión de estado (favoritos, visitas)
-│   ├── supabase-config.js           # Variables de conexión API
+│   ├── firebase-config.js           # Configuración pública de Firebase
 │   └── utils/                       # Sanitización HTML y cálculo Haversine
 │
 ├── tests/                           # Suite de pruebas unitarias
@@ -137,7 +138,7 @@ peruturismo-go/
 ├── rutas.json                       # Definición de rutas temáticas y polígonos
 ├── manifest.json                    # Metadatos instalables de la PWA
 ├── service-worker.js                # Caché segura del shell y catálogos públicos
-├── supabase.sql                     # Script SQL para tablas y políticas RLS
+├── supabase.sql                     # Legado; ya no se usa para autenticación
 ├── servidor.py                      # Servidor HTTP local para desarrollo
 ├── INICIAR.bat                      # Lanzador rápido de un clic para Windows
 ├── .github/workflows/ci.yml         # CI: tests, JSON y comprobaciones de seguridad
@@ -181,7 +182,7 @@ La CI ejecuta `npm test`, valida el JSON de los catálogos y comprueba que el fr
 
 ### PWA y uso sin conexión
 
-En una primera visita con conexión, el service worker precarga el shell, los catálogos y el módulo público de Supabase. Después puede abrirse la interfaz y consultar el catálogo sin conexión; el progreso invitado permanece en `localStorage`. No se cachean respuestas de Supabase, sesiones, credenciales, teselas de mapas ni solicitudes privadas. La autenticación y sincronización requieren conexión y muestran un aviso visible si fallan.
+En una primera visita con conexión, el service worker precarga el shell, los catálogos y los módulos públicos de Firebase. Después puede abrirse la interfaz y consultar el catálogo sin conexión; el progreso permanece en `localStorage`. No se cachean respuestas de Firebase, credenciales, teselas de mapas ni solicitudes privadas. La autenticación requiere conexión y muestra un aviso visible si falla.
 
 ### Fase 1: asistente turístico local
 
@@ -191,40 +192,37 @@ No usa IA, APIs de inteligencia artificial ni claves, y no actúa como agencia d
 
 ---
 
-## ⚡ Configuración con Supabase (Opcional)
+## ⚡ Configuración con Firebase Authentication (Opcional)
 
-Si deseas habilitar la persistencia de usuarios en la nube para sincronizar datos entre múltiples dispositivos:
+La aplicación usa Firebase Authentication para Google y correo/contraseña.
+Firebase no sincroniza el catálogo ni el progreso: este último permanece en
+`localStorage`, y Firestore queda fuera de este cambio.
 
-1. Crea un proyecto gratuito en [supabase.com](https://supabase.com).
-2. Ve al **SQL Editor** y ejecuta todo el script [`supabase.sql`](supabase.sql). Esto creará las tablas seguras con políticas de seguridad a nivel de fila (**RLS**).
-3. Ve a **Project Settings ➔ API** y copia tu `Project URL` y `Publishable/anon key`.
-4. Abre `js/supabase-config.js` y reemplaza los valores de ejemplo:
+1. Crea un proyecto en [Firebase Console](https://console.firebase.google.com/).
+2. En **Authentication ➔ Sign-in method**, habilita **Email/Password** y
+   **Google**.
+3. En **Project settings ➔ Your apps**, registra una aplicación web (`</>`).
+4. Copia la configuración pública mostrada y reemplaza los valores de
+   `js/firebase-config.js`:
    ```javascript
-   export const SUPABASE_URL = "https://tu-proyecto.supabase.co";
-   export const SUPABASE_ANON_KEY = "tu-clave-anonima-publica";
+   export const FIREBASE_CONFIG = Object.freeze({
+       apiKey: "AIza...",
+       authDomain: "tu-proyecto.firebaseapp.com",
+       projectId: "tu-proyecto",
+       appId: "1:123:web:abc"
+   });
    ```
-5. En **Authentication ➔ Providers ➔ Google**, habilita el proveedor y pega el
-   *Client ID* y *Client Secret* creados en Google Cloud Console (OAuth client
-   de tipo **Web application**). En Google agrega como *Authorized redirect URI*
-   la URL de callback de Supabase:
-   `https://<tu-proyecto>.supabase.co/auth/v1/callback`.
-6. En **Authentication ➔ URL Configuration** configura:
-   - **Site URL:** `https://peru-turismo-go.netlify.app`
-   - **Redirect URLs:** `https://peru-turismo-go.netlify.app/**`,
-     `http://localhost:8000/**` y cada URL de preview de Netlify que uses
-     (por ejemplo, `https://deploy-id--peru-turismo-go.netlify.app/**`).
-     La aplicación solo devuelve a Google la URL actual cuando es HTTPS y está
-     en la allowlist de producción, o cuando es un origen loopback HTTP para
-     desarrollo local; no acepta redirecciones arbitrarias.
-7. En Netlify no necesitas exponer el Client Secret: pertenece únicamente a
-   Supabase. Publica los archivos estáticos normalmente y conserva en
-   `js/supabase-config.js` solo la URL y la clave **anon/publishable**, que no
-   es un secreto cuando RLS está configurado. No pongas claves de Google en el
-   repositorio.
+   Esta configuración es pública; no contiene un Client Secret.
+5. En **Authentication ➔ Settings ➔ Authorized domains**, agrega:
+   `peru-turismo-go.netlify.app`, `localhost` y el dominio de preview de Netlify
+   que uses. Firebase autoriza el popup de Google desde esos dominios.
+6. Publica el cambio en Netlify. No agregues credenciales privadas al
+   repositorio ni a `netlify.toml`.
 
-OAuth y sincronización requieren conexión. Si Supabase no está configurado, si
-el navegador está offline o si el origen no está permitido, el flujo muestra un
-error explícito y el acceso por correo/contraseña sigue disponible.
+Si Firebase no está configurado, el navegador está offline, el popup está
+bloqueado o el dominio no está autorizado, la interfaz muestra un error claro y
+la exploración como invitado sigue funcionando. El archivo `supabase.sql` se conserva únicamente como referencia histórica; ya
+no participa en el flujo de autenticación.
 
 ---
 
