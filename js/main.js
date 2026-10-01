@@ -60,6 +60,17 @@ import { initAuth, guardarProgresoRemoto } from './auth.js';
 
 window.peruAuth = { guardarProgresoRemoto };
 
+function registrarServiceWorker() {
+    if (!('serviceWorker' in navigator) || window.location.protocol === 'file:') return;
+    navigator.serviceWorker.register('./service-worker.js')
+        .then(() => console.info('PWA: service worker registrado'))
+        .catch(error => console.warn('PWA: no se pudo registrar el service worker', error));
+}
+
+window.addEventListener('peruturismo:sync-error', () => {
+    mostrarToast('No se pudo sincronizar tu progreso. Tus cambios siguen guardados en este dispositivo.', 'error');
+});
+
 // Exponer funciones necesarias en window para los event handlers inline en popups / templates
 window.hacerCheckIn = hacerCheckIn;
 window.manejarFavorito = manejarFavorito;
@@ -75,6 +86,7 @@ function initFechaInicio() {
 }
 
 async function init() {
+    registrarServiceWorker();
     if (localStorage.getItem('peruTurismo_tema') === 'oscuro') {
         document.body.classList.add('dark');
     }
@@ -98,7 +110,7 @@ async function init() {
     if (lugares.length === 0) {
         const listaContainer = document.getElementById('lista-lugares');
         if (listaContainer) {
-            listaContainer.innerHTML = `<div class="vacio">⚠️ No se pudieron cargar los lugares.<br>Verifica que lugares.json exista.</div>`;
+            listaContainer.innerHTML = `<div class="vacio">No hay lugares disponibles todavía. Revisa el aviso superior y vuelve a intentar cuando tengas conexión.</div>`;
         }
         return;
     }

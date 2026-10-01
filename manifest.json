@@ -1,0 +1,22 @@
+{
+  "name": "PerúTurismo GO",
+  "short_name": "PerúTurismo GO",
+  "description": "Bitácora interactiva para descubrir destinos reales del Perú.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f7f3eb",
+  "theme_color": "#123c32",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "assets/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/favicon-64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    }
+  ]
+}

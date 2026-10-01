@@ -57,9 +57,17 @@ export async function guardarProgresoRemoto() {
             progreso: progresoLocal(),
             actualizado_en: new Date().toISOString()
         }).then(({ error }) => {
-            if (error) console.warn('No se pudo sincronizar el progreso:', error.message);
+            if (error) {
+                console.warn('No se pudo sincronizar el progreso:', error.message);
+                window.dispatchEvent(new CustomEvent('peruturismo:sync-error', {
+                    detail: { message: error.message }
+                }));
+            }
         }).catch(error => {
             console.warn('No se pudo sincronizar el progreso:', error);
+            window.dispatchEvent(new CustomEvent('peruturismo:sync-error', {
+                detail: { message: error instanceof Error ? error.message : 'Error de red' }
+            }));
         }).finally(() => {
             syncInFlight = null;
         });

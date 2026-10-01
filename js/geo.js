@@ -47,7 +47,7 @@ export function obtenerUbicacion(callbacks = {}) {
     }
 
     if (!navigator.geolocation) {
-        alert('Tu navegador no soporta geolocalización');
+        callbacks.mostrarToast?.('Tu navegador no soporta geolocalización.', 'error');
         return;
     }
 
@@ -64,7 +64,7 @@ export function obtenerUbicacion(callbacks = {}) {
                 btn.innerHTML = '<span aria-hidden="true">📍</span><i class="fas fa-location-dot" aria-hidden="true"></i><span class="sr-only">Activar detección de lugares cercanos</span>';
                 btn.disabled = false;
             }
-            alert('⚠️ No se pudo obtener tu ubicación.\nAsegúrate de permitir el acceso a la ubicación.');
+            callbacks.mostrarToast?.('No se pudo obtener tu ubicación. Revisa el permiso y vuelve a intentarlo.', 'error');
         },
         { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
     );

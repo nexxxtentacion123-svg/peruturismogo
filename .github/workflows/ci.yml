@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm test
+      - name: Validate JSON catalogs
+        run: node -e "for (const f of ['lugares.json','lugares-extra.json','lugares-lima.json','rutas.json','manifest.json']) JSON.parse(require('fs').readFileSync(f, 'utf8')); console.log('JSON válido')"
+      - name: Check frontend references
+        shell: bash
+        run: |
+          test -f service-worker.js
+          grep -q 'js/main.js' index.html
+          ! grep -q 'service_role' js/supabase-config.js

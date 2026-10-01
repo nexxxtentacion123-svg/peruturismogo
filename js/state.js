@@ -235,20 +235,33 @@ export async function cargarLugares() {
         if (window.location.protocol === 'file:') {
             throw new Error('La app necesita ejecutarse desde un servidor local, no desde file://');
         }
-        const [resp, extraResp] = await Promise.all([
+        const [resp, extraResp, limaResp] = await Promise.all([
             fetch('lugares.json'),
-            fetch('lugares-extra.json').catch(() => null)
+            fetch('lugares-extra.json'),
+            fetch('lugares-lima.json')
         ]);
         if (!resp.ok) throw new Error('No se pudo cargar lugares.json');
         const base = await resp.json();
-        const extra = extraResp && extraResp.ok ? await extraResp.json() : [];
-        const unicos = new Map([...base, ...extra].map(lugar => [lugar.id, lugar]));
+        if (!Array.isArray(base)) throw new Error('lugares.json no contiene una lista válida');
+        if (!extraResp.ok) throw new Error('No se pudo cargar lugares-extra.json');
+        if (!limaResp.ok) throw new Error('No se pudo cargar lugares-lima.json');
+        const extra = await extraResp.json();
+        const lima = await limaResp.json();
+        if (!Array.isArray(extra) || !Array.isArray(lima)) {
+            throw new Error('Uno de los catálogos turísticos no contiene una lista válida');
+        }
+        const unicos = new Map([...base, ...extra, ...lima].map(lugar => [lugar.id, lugar]));
         const listaLugares = [...unicos.values()];
         setLugares(listaLugares);
         return listaLugares;
     } catch (error) {
         console.error('Error cargando lugares:', error);
-        alert('⚠️ No se pudo cargar lugares.json.\nAbre la carpeta con servidor local (por ejemplo: python servidor.py).');
+        const mensaje = error instanceof Error ? error.message : 'Error desconocido';
+        const estado = document.getElementById('estado-carga');
+        if (estado) {
+            estado.textContent = `No se pudo cargar el catálogo turístico (${mensaje}). Revisa tu conexión o abre la app desde un servidor local.`;
+            estado.classList.remove('hidden');
+        }
         return [];
     }
 }
@@ -261,10 +274,14 @@ export async function cargarRutas() {
         setRutas(listaRutas);
         return listaRutas;
     } catch (error) {
-        console.warn('No se encontró rutas.json, usando rutas por defecto');
-        const listaRutas = generarRutasPorDefecto();
-        setRutas(listaRutas);
-        return listaRutas;
+        console.error('Error cargando rutas:', error);
+        const estado = document.getElementById('estado-carga');
+        if (estado) {
+            estado.textContent = 'No se pudieron cargar las rutas temáticas. Puedes explorar el catálogo de lugares mientras se recupera la conexión.';
+            estado.classList.remove('hidden');
+        }
+        setRutas([]);
+        return [];
     }
 }
 

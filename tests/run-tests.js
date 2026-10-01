@@ -4,6 +4,7 @@
 
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
+import fs from 'node:fs';
 
 import { escaparHtml } from '../js/utils/sanitize.js';
 import { calcularDistancia, formatearDistancia } from '../js/utils/geoUtils.js';
@@ -39,6 +40,19 @@ test('Niveles y Gamificación', () => {
     assert.equal(puntosPorCheckIn(lugarNormal, true), 25);
     assert.equal(puntosPorCheckIn(joyaOculta, false), 30);
     assert.equal(puntosPorCheckIn(joyaOculta, true), 45);
+});
+
+test('Catálogo ampliado de Lima y PWA', () => {
+    const lima = JSON.parse(fs.readFileSync(new URL('../lugares-lima.json', import.meta.url)));
+    assert.equal(lima.length, 39);
+    assert.equal(new Set(lima.map(lugar => lugar.id)).size, lima.length);
+    assert.ok(lima.some(lugar => lugar.distrito === 'Miraflores'));
+    assert.ok(lima.some(lugar => lugar.provincia === 'Yauyos'));
+    assert.ok(lima.every(lugar => Number.isFinite(lugar.lat) && Number.isFinite(lugar.lng)));
+
+    const manifest = JSON.parse(fs.readFileSync(new URL('../manifest.json', import.meta.url)));
+    assert.equal(manifest.display, 'standalone');
+    assert.match(fs.readFileSync(new URL('../service-worker.js', import.meta.url), 'utf8'), /No intercept.*Supabase|Supabase/);
 });
 
 console.log('✅ ¡Todas las pruebas unitarias pasaron exitosamente!');

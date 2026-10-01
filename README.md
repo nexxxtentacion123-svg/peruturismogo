@@ -60,7 +60,7 @@ A través de un mapa dinámico con cartografía detallada, los viajeros pueden r
 ## ✨ Características Principales
 
 - 🗺️ **Mapa Interactivo Nacional (Leaflet.js):**
-  - Cientos de atractivos geolocalizados: sitios arqueológicos, maravillas naturales, museos, gastronomía y reservas.
+  - Más de 140 atractivos geolocalizados: sitios arqueológicos, maravillas naturales, museos, gastronomía y reservas.
   - Marcadores personalizados por categoría con ventanas emergentes interactivas y fotos.
 
 - 🛣️ **Rutas Temáticas Guiadas:**
@@ -127,13 +127,24 @@ peruturismo-go/
 ├── brand_showcase.html              # Manual interactivo de identidad de marca
 ├── index.html                       # Documento principal de la aplicación
 ├── style.css                        # Design System y hojas de estilo
-├── lugares.json                     # Base de datos de atractivos turísticos
+├── lugares.json                     # Catálogo nacional base
+├── lugares-extra.json               # Ampliación nacional
+├── lugares-lima.json                # Curaduría ampliada de Lima Metropolitana y provincias
 ├── rutas.json                       # Definición de rutas temáticas y polígonos
+├── manifest.json                    # Metadatos instalables de la PWA
+├── service-worker.js                # Caché segura del shell y catálogos públicos
 ├── supabase.sql                     # Script SQL para tablas y políticas RLS
 ├── servidor.py                      # Servidor HTTP local para desarrollo
 ├── INICIAR.bat                      # Lanzador rápido de un clic para Windows
+├── .github/workflows/ci.yml         # CI: tests, JSON y comprobaciones de seguridad
 └── package.json                     # Configuración y runner de tests
 ```
+
+La aplicación usa `js/main.js` como único punto de entrada y mantiene la lógica separada por módulos. El antiguo `app.js` fue eliminado: la búsqueda del repositorio confirmó que no estaba referenciado por HTML, scripts, documentación ni configuración; conservarlo habría duplicado la implementación activa.
+
+### Catálogo de Lima
+
+`lugares-lima.json` incorpora 39 destinos adicionales (IDs 104–142) de Lima Metropolitana, Callao y las provincias de Barranca, Huaral, Oyón, Canta, Cañete y Yauyos. Cada ficha incluye coordenadas de referencia, distrito/provincia cuando están disponibles y una descripción breve. Es una curaduría amplia basada en destinos reconocidos, no una garantía literal de incluir absolutamente todos los puntos turísticos de la región; horarios, precios y accesos deben verificarse antes de viajar.
 
 ---
 
@@ -159,6 +170,12 @@ El proyecto incluye pruebas automatizadas para la sanitización de datos, cálcu
 ```bash
 npm test
 ```
+
+La CI ejecuta `npm test`, valida el JSON de los catálogos y comprueba que el frontend no incluya una `service_role` key. No se necesitan dependencias adicionales.
+
+### PWA y uso sin conexión
+
+En una primera visita con conexión, el service worker precarga el shell, los catálogos y el módulo público de Supabase. Después puede abrirse la interfaz y consultar el catálogo sin conexión; el progreso invitado permanece en `localStorage`. No se cachean respuestas de Supabase, sesiones, credenciales, teselas de mapas ni solicitudes privadas. La autenticación y sincronización requieren conexión y muestran un aviso visible si fallan.
 
 ---
 
