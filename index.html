@@ -49,8 +49,8 @@
             <button type="button" id="btn-abrir-auth" class="btn-auth-header">
                 <i class="fas fa-right-to-bracket"></i><span>Guardar progreso</span>
             </button>
-            <button type="button" id="btn-planificar" class="btn-planificar">
-                <i class="fas fa-wand-magic-sparkles"></i><span>Planifica mi viaje</span>
+            <button type="button" id="btn-planificar" class="btn-planificar" aria-label="Abrir planificador local">
+                <i class="fas fa-compass"></i><span>Plan local</span>
             </button>
             <div class="stats">
                 <span class="stat-pill"><i class="fas fa-flag-checkered"></i> Visitados: <span class="numero" id="contador-visitas">0</span></span>
@@ -315,32 +315,17 @@
             <section class="modal-content planificador-card" role="dialog" aria-modal="true" aria-labelledby="planificador-titulo">
                 <button type="button" class="modal-cerrar" id="planificador-cerrar" aria-label="Cerrar planificador"><i class="fas fa-times"></i></button>
                 <p class="bienvenida-kicker">Recomendador local</p>
-                <h2 id="planificador-titulo">Planifica tu próxima expedición</h2>
-                <p class="planificador-lead">Cuéntanos qué buscas y te mostraremos destinos del catálogo de PerúTurismo GO. No usamos una IA externa ni enviamos tus datos.</p>
+                <h2 id="planificador-titulo">Plan local de viaje</h2>
+                <p class="planificador-lead">Te guiamos por pasos usando solo el catálogo disponible. No usamos IA externa ni enviamos tus datos.</p>
+                <p id="planificador-paso" class="planificador-paso" aria-live="polite"></p>
                 <form id="form-planificador" class="planificador-form">
-                    <label for="plan-presupuesto">Presupuesto por actividad</label>
-                    <select id="plan-presupuesto" name="presupuesto">
-                        <option value="bajo">Económico</option>
-                        <option value="medio" selected>Moderado</option>
-                        <option value="alto">Amplio</option>
-                    </select>
-                    <label for="plan-dias">¿Cuántos días viajarás?</label>
-                    <input id="plan-dias" name="dias" type="number" min="1" max="30" value="3" required>
-                    <label for="plan-region">Región o provincia preferida (opcional)</label>
-                    <input id="plan-region" name="region" type="text" maxlength="40" placeholder="Ej. Lima, Cusco, Áncash">
-                    <fieldset>
-                        <legend>¿Qué te interesa?</legend>
-                        <label><input type="checkbox" name="intereses" value="Cultural"> Cultura e historia</label>
-                        <label><input type="checkbox" name="intereses" value="Naturaleza"> Naturaleza</label>
-                        <label><input type="checkbox" name="intereses" value="Aventura"> Aventura</label>
-                        <label><input type="checkbox" name="intereses" value="Gastronomía"> Gastronomía</label>
-                    </fieldset>
-                    <label for="plan-ritmo">Ritmo de viaje</label>
-                    <select id="plan-ritmo" name="ritmo">
-                        <option value="tranquilo">Tranquilo y flexible</option>
-                        <option value="activo" selected>Activo</option>
-                    </select>
-                    <button class="btn-empezar" type="submit"><i class="fas fa-compass"></i> Recomiéndame destinos</button>
+                    <div data-plan-step="presupuesto"><label for="plan-presupuesto">¿Qué presupuesto quieres cuidar?</label><select id="plan-presupuesto" name="presupuesto"><option value="bajo">Económico: S/ 1–25</option><option value="medio" selected>Moderado: S/ 26–80</option><option value="alto">Amplio: sin tope de entrada</option></select></div>
+                    <div data-plan-step="fechas"><label for="plan-fechas">¿Cuándo viajarás?</label><input id="plan-fechas" name="fechas" type="date"><label for="plan-dias">¿Cuánto durará?</label><select id="plan-dias" name="dias"><option value="">Prefiero no indicarlo</option><option value="1">1 día</option><option value="2-3">2–3 días</option><option value="4-7">4–7 días</option><option value="8+">Más de una semana</option></select></div>
+                    <div data-plan-step="salida"><label for="plan-region">¿Desde qué ciudad partes?</label><input id="plan-region" name="salida" type="text" maxlength="40" placeholder="Ej. Lima, Cusco, Áncash" required></div>
+                    <fieldset data-plan-step="intereses"><legend>¿Qué te interesa?</legend><label><input type="checkbox" name="intereses" value="Cultural"> Cultura e historia</label><label><input type="checkbox" name="intereses" value="Naturaleza"> Naturaleza</label><label><input type="checkbox" name="intereses" value="Aventura"> Aventura</label><label><input type="checkbox" name="intereses" value="Gastronómica"> Gastronomía</label><label><input type="checkbox" name="intereses" value="Urbana"> Ciudad y barrios</label></fieldset>
+                    <div data-plan-step="ritmo"><label for="plan-ritmo">¿Qué ritmo te acomoda?</label><select id="plan-ritmo" name="ritmo"><option value="tranquilo">Tranquilo</option><option value="activo" selected>Equilibrado</option><option value="intenso">Intenso</option></select></div>
+                    <div data-plan-step="transporte"><label for="plan-transporte">¿Cómo te moverás?</label><select id="plan-transporte" name="transporte"><option value="publico">Transporte público</option><option value="mixto" selected>Mixto</option><option value="privado">Movilidad privada</option></select></div>
+                    <div class="planificador-acciones"><button type="button" id="planificador-atras" class="btn-plan-secundario">Atrás</button><button type="button" id="planificador-reiniciar" class="btn-plan-link">Reiniciar</button><button id="planificador-continuar" class="btn-empezar" type="submit">Continuar</button></div>
                 </form>
                 <div id="planificador-resultado" class="planificador-resultado" aria-live="polite"></div>
             </section>

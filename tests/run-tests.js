@@ -9,6 +9,7 @@ import fs from 'node:fs';
 import { escaparHtml } from '../js/utils/sanitize.js';
 import { calcularDistancia, formatearDistancia } from '../js/utils/geoUtils.js';
 import { obtenerNivel, puntosPorCheckIn } from '../js/state.js';
+import { formatearRangoCosto, normalizarPreferencias, obtenerLimitaciones } from '../js/recommendations.js';
 import { recomendarLugares, crearExplicacion } from '../js/recommendations.js';
 
 test('Sanitización de HTML', () => {
@@ -65,6 +66,27 @@ test('Recomendador local por preferencias', () => {
     const [primero] = recomendarLugares(lugares, preferencias);
     assert.equal(primero.id, 1);
     assert.match(crearExplicacion(primero, preferencias), /interés|Lima|presupuesto/i);
+});
+
+test('Recomendador: catálogo vacío, filtros estrictos y límites 3–5', () => {
+    assert.deepEqual(recomendarLugares([], {}, 5), []);
+    const catalogo = [
+        { id: 1, nombre: 'Museo Lima', region: 'Lima', categoria: 'Museo', tiposExplorador: ['Cultural'], precio: 'S/ 15', transportePublico: 'Bus' },
+        { id: 2, nombre: 'Parque Lima', region: 'Lima', categoria: 'Parque', tiposExplorador: ['Naturaleza'], precio: 'Gratis', transportePublico: 'Bus' },
+        { id: 3, nombre: 'Cañón', region: 'Arequipa', categoria: 'Aventura', tiposExplorador: ['Aventura'], precio: 'S/ 120' },
+        { id: 4, nombre: 'Plaza Cusco', region: 'Cusco', categoria: 'Historia', tiposExplorador: ['Cultural'], precio: 'S/ 10' },
+        { id: 5, nombre: 'Barrio Lima', region: 'Lima', categoria: 'Cultura', tiposExplorador: ['Cultural'], precio: 'S/ 10' },
+        { id: 6, nombre: 'Reserva Lima', region: 'Lima', categoria: 'Reserva', tiposExplorador: ['Naturaleza'], precio: 'S/ 20' }
+    ];
+    const perfil = normalizarPreferencias({ presupuesto: 'bajo', intereses: ['Cultural'], salida: 'Lima', transporte: 'publico' });
+    const resultados = recomendarLugares(catalogo, perfil, 5);
+    assert.ok(resultados.length >= 1 && resultados.length <= 5);
+    assert.ok(resultados.every(lugar => lugar.costoEstimado === null || lugar.costoEstimado <= 25));
+    assert.ok(resultados.every(lugar => lugar._coincidencias.length > 0 && lugar._coincideTransporte));
+    assert.equal(recomendarLugares(catalogo, {}, 2).length, 3);
+    assert.equal(recomendarLugares(catalogo, {}, 9).length, 5);
+    assert.equal(formatearRangoCosto('S/ 35'), 'S/ 26–80');
+    assert.ok(obtenerLimitaciones({ salida: 'Lima' }, catalogo).some(texto => texto.includes('duración')));
 });
 
 console.log('✅ ¡Todas las pruebas unitarias pasaron exitosamente!');

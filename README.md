@@ -183,6 +183,12 @@ La CI ejecuta `npm test`, valida el JSON de los catálogos y comprueba que el fr
 
 En una primera visita con conexión, el service worker precarga el shell, los catálogos y el módulo público de Supabase. Después puede abrirse la interfaz y consultar el catálogo sin conexión; el progreso invitado permanece en `localStorage`. No se cachean respuestas de Supabase, sesiones, credenciales, teselas de mapas ni solicitudes privadas. La autenticación y sincronización requieren conexión y muestran un aviso visible si fallan.
 
+### Fase 1: asistente turístico local
+
+La Fase 1 añade un asistente guiado accesible desde **Plan local**. Pregunta presupuesto, fechas y duración, ciudad de salida, intereses, ritmo y transporte; después recomienda entre 3 y 5 destinos usando únicamente los catálogos locales cacheados por la PWA. Cada recomendación explica sus coincidencias, muestra el precio registrado como estimación y recuerda verificar precios, horarios y accesos.
+
+No usa IA, APIs de inteligencia artificial ni claves, y no actúa como agencia de viajes. Las fechas/duración, ritmo y ciudad de salida se conservan como contexto: el catálogo actual no registra duración, ritmo ni rutas/distancias por destino. Tampoco incluye videos en esta fase.
+
 ---
 
 ## ⚡ Configuración con Supabase (Opcional)
