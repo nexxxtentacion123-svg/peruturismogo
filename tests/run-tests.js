@@ -69,8 +69,8 @@ test('Catálogo ampliado de Lima y PWA', () => {
     const manifest = JSON.parse(fs.readFileSync(new URL('../manifest.json', import.meta.url)));
     assert.equal(manifest.display, 'standalone');
     const serviceWorker = fs.readFileSync(new URL('../service-worker.js', import.meta.url), 'utf8');
-    assert.match(serviceWorker, /No intercept.*Supabase|Supabase/);
-    assert.match(serviceWorker, /peruturismo-shell-v4/);
+    assert.match(serviceWorker, /firebase-auth/);
+    assert.match(serviceWorker, /peruturismo-shell-v5/);
     assert.match(serviceWorker, /fetch\(request\)\.then/);
 });
 
