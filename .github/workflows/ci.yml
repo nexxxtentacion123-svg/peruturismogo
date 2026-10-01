@@ -16,7 +16,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
       - run: npm test
       - name: Validate JSON catalogs
         run: node -e "for (const f of ['lugares.json','lugares-extra.json','lugares-lima.json','rutas.json','manifest.json']) JSON.parse(require('fs').readFileSync(f, 'utf8')); console.log('JSON válido')"
