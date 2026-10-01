@@ -49,6 +49,9 @@
             <button type="button" id="btn-abrir-auth" class="btn-auth-header">
                 <i class="fas fa-right-to-bracket"></i><span>Guardar progreso</span>
             </button>
+            <button type="button" id="btn-abrir-asistente" class="btn-asistente-header">
+                <i class="fas fa-compass"></i><span>Plan local</span>
+            </button>
             <div class="stats">
                 <span class="stat-pill"><i class="fas fa-flag-checkered"></i> Visitados: <span class="numero" id="contador-visitas">0</span></span>
                 <span class="stat-pill"><i class="fas fa-walking"></i> Total: <span class="numero" id="total-lugares">0</span></span>
@@ -70,6 +73,23 @@
             </button>
             <div class="auth-mascot-wrap">
                 <img class="auth-mascot" src="assets/kuntur-mascot-transparent.png" alt="Kuntur te acompaña en tu expedición" />
+            </div>
+
+            <div id="asistente-overlay" class="asistente-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="asistente-titulo">
+                <section id="asistente-panel" class="asistente-panel" aria-label="Asistente turístico local">
+                    <header class="asistente-header">
+                        <div><p class="bienvenida-kicker">Kuntur te orienta</p><h2 id="asistente-titulo">Plan local de viaje</h2></div>
+                        <button type="button" id="asistente-cerrar" class="asistente-cerrar" aria-label="Cerrar asistente"><i class="fas fa-times"></i></button>
+                    </header>
+                    <div id="asistente-body" class="asistente-body"></div>
+                    <form id="asistente-form" class="asistente-form" novalidate>
+                        <div class="asistente-acciones">
+                            <button type="button" id="asistente-atras" class="asistente-btn secundario">Atrás</button>
+                            <button type="button" id="asistente-reiniciar" class="asistente-btn enlace">Reiniciar</button>
+                            <button type="submit" id="asistente-continuar" class="asistente-btn primario">Continuar</button>
+                        </div>
+                    </form>
+                </section>
             </div>
             <p class="bienvenida-kicker">Tu bitácora del Perú</p>
             <h2 id="auth-titulo">Inicia tu expedición</h2>

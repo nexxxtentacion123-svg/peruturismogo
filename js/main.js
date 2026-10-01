@@ -57,6 +57,7 @@ import {
     solicitarPermisoNotificaciones
 } from './geo.js';
 import { initAuth, guardarProgresoRemoto } from './auth.js';
+import { initAsistente } from './assistant-ui.js';
 
 window.peruAuth = { guardarProgresoRemoto };
 
@@ -106,6 +107,7 @@ async function init() {
     // 2. Cargar Datos
     const lugares = await cargarLugares();
     const rutas = await cargarRutas();
+    initAsistente(lugares);
 
     if (lugares.length === 0) {
         const listaContainer = document.getElementById('lista-lugares');

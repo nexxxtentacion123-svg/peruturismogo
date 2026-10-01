@@ -19,6 +19,8 @@ const SHELL = [
   './js/supabase-config.js',
   './js/utils/geoUtils.js',
   './js/utils/sanitize.js',
+  './js/assistant.js',
+  './js/assistant-ui.js',
   './assets/favicon.png',
   './assets/favicon-64.png',
   './assets/kuntur-avatar.png',
