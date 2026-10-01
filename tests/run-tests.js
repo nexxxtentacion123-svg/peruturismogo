@@ -9,6 +9,7 @@ import fs from 'node:fs';
 import { escaparHtml } from '../js/utils/sanitize.js';
 import { calcularDistancia, formatearDistancia } from '../js/utils/geoUtils.js';
 import { obtenerNivel, puntosPorCheckIn } from '../js/state.js';
+import { recomendarLugares, crearExplicacion } from '../js/recommendations.js';
 
 test('Sanitización de HTML', () => {
     assert.equal(escaparHtml('<script>alert("xss")</script>'), '&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;');
@@ -53,6 +54,17 @@ test('Catálogo ampliado de Lima y PWA', () => {
     const manifest = JSON.parse(fs.readFileSync(new URL('../manifest.json', import.meta.url)));
     assert.equal(manifest.display, 'standalone');
     assert.match(fs.readFileSync(new URL('../service-worker.js', import.meta.url), 'utf8'), /No intercept.*Supabase|Supabase/);
+});
+
+test('Recomendador local por preferencias', () => {
+    const lugares = [
+        { id: 1, nombre: 'Museo de Lima', region: 'Lima', categoria: 'Museo', descripcion: 'Historia y cultura', tiposExplorador: ['Cultural'], precio: 'S/ 20' },
+        { id: 2, nombre: 'Cañón', region: 'Arequipa', categoria: 'Aventura', descripcion: 'Naturaleza', tiposExplorador: ['Naturaleza'], precio: 'Consultar' }
+    ];
+    const preferencias = { presupuesto: 'bajo', dias: 3, region: 'Lima', intereses: ['Cultural'], ritmo: 'activo' };
+    const [primero] = recomendarLugares(lugares, preferencias);
+    assert.equal(primero.id, 1);
+    assert.match(crearExplicacion(primero, preferencias), /interés|Lima|presupuesto/i);
 });
 
 console.log('✅ ¡Todas las pruebas unitarias pasaron exitosamente!');

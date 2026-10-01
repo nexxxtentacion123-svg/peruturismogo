@@ -15,6 +15,7 @@ const SHELL = [
   './js/filters.js',
   './js/geo.js',
   './js/auth.js',
+  './js/recommendations.js',
   './js/gamification.js',
   './js/supabase-config.js',
   './js/utils/geoUtils.js',
