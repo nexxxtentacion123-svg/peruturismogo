@@ -218,6 +218,13 @@ Puedes alojar este proyecto en cualquier plataforma de hosting estático gratuit
 - **Vercel / Netlify / Cloudflare Pages:**
   - Simplemente conecta tu repositorio y despliega. No se requiere comando de compilación (cero dependencias de empaquetado).
 
+El catálogo se carga desde `lugares.json`, `lugares-extra.json`, `lugares-lima.json`
+y `lugares-ancash.json`. Este último incorpora más de 50 destinos de Áncash
+(Cordillera Blanca, Huayhuash, Callejón de Huaylas, Conchucos y costa) con
+coordenadas de referencia. Confirma antes de viajar los accesos, horarios,
+precios, clima y condiciones de las rutas: el catálogo es orientativo y no
+reemplaza la información oficial ni la de los operadores locales.
+
 ### Producción y previews de Netlify
 
 La URL de producción es [`peru-turismo-go.netlify.app`](https://peru-turismo-go.netlify.app/).

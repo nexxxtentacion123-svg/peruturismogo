@@ -56,8 +56,25 @@ test('Catálogo ampliado de Lima y PWA', () => {
     assert.equal(manifest.display, 'standalone');
     const serviceWorker = fs.readFileSync(new URL('../service-worker.js', import.meta.url), 'utf8');
     assert.match(serviceWorker, /No intercept.*Supabase|Supabase/);
-    assert.match(serviceWorker, /peruturismo-shell-v2/);
+    assert.match(serviceWorker, /peruturismo-shell-v3/);
     assert.match(serviceWorker, /fetch\(request\)\.then/);
+});
+
+test('Catálogo de Áncash integrado sin IDs duplicados', () => {
+    const archivos = ['lugares.json', 'lugares-extra.json', 'lugares-lima.json', 'lugares-ancash.json'];
+    const catalogo = archivos.flatMap(archivo => JSON.parse(fs.readFileSync(new URL(`../${archivo}`, import.meta.url))));
+    const ancash = catalogo.filter(lugar => lugar.region === 'Áncash');
+    assert.ok(ancash.length >= 50);
+    assert.equal(new Set(catalogo.map(lugar => lugar.id)).size, catalogo.length);
+    assert.ok(ancash.every(lugar => Number.isFinite(lugar.lat) && Number.isFinite(lugar.lng)));
+    assert.ok(ancash.some(lugar => lugar.provincia === 'Huaraz'));
+    assert.ok(ancash.some(lugar => lugar.provincia === 'Huari'));
+});
+
+test('El planificador avanza con pasos posteriores ocultos', () => {
+    const html = fs.readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+    assert.match(html, /id="form-planificador"[^>]*novalidate/);
+    assert.doesNotMatch(html, /id="plan-region"[^>]*required/);
 });
 
 test('El modal del planificador es hermano del modal de lugar', () => {
