@@ -218,6 +218,21 @@ Puedes alojar este proyecto en cualquier plataforma de hosting estático gratuit
 - **Vercel / Netlify / Cloudflare Pages:**
   - Simplemente conecta tu repositorio y despliega. No se requiere comando de compilación (cero dependencias de empaquetado).
 
+### Producción y previews de Netlify
+
+La URL de producción es [`peru-turismo-go.netlify.app`](https://peru-turismo-go.netlify.app/).
+Una URL con el formato `deploy-id--peru-turismo-go.netlify.app` es un deployment
+separado de preview: puede servir otro commit y no reemplaza producción hasta que
+ese cambio se publique en `main`. Para comparar deployments, revisa el commit del
+deployment en Netlify; no mezcles una URL de preview con la de producción al
+reportar una diferencia.
+
+La aplicación usa un service worker para funcionar offline. El cache se versiona
+con cada cambio relevante y los archivos de aplicación y catálogos se solicitan
+primero desde la red, usando el cache solo como fallback offline. Netlify entrega
+`service-worker.js` e `index.html` sin cache HTTP para que las actualizaciones
+lleguen al navegador y el service worker elimina caches anteriores al activarse.
+
 ---
 
 ## 🤝 Contribuciones

@@ -54,7 +54,10 @@ test('Catálogo ampliado de Lima y PWA', () => {
 
     const manifest = JSON.parse(fs.readFileSync(new URL('../manifest.json', import.meta.url)));
     assert.equal(manifest.display, 'standalone');
-    assert.match(fs.readFileSync(new URL('../service-worker.js', import.meta.url), 'utf8'), /No intercept.*Supabase|Supabase/);
+    const serviceWorker = fs.readFileSync(new URL('../service-worker.js', import.meta.url), 'utf8');
+    assert.match(serviceWorker, /No intercept.*Supabase|Supabase/);
+    assert.match(serviceWorker, /peruturismo-shell-v2/);
+    assert.match(serviceWorker, /fetch\(request\)\.then/);
 });
 
 test('El modal del planificador es hermano del modal de lugar', () => {
