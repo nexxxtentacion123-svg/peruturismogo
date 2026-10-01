@@ -1,10 +1,10 @@
 // Configuración pública de Firebase. No incluyas aquí claves privadas o
 // secretos de OAuth; Firebase restringe el uso mediante dominios autorizados.
 export const FIREBASE_CONFIG = Object.freeze({
-    apiKey: 'TU_FIREBASE_API_KEY',
-    authDomain: 'TU_PROYECTO.firebaseapp.com',
-    projectId: 'TU_PROYECTO',
-    appId: 'TU_FIREBASE_APP_ID'
+    apiKey: 'AIzaSyAteNAYvm5Dp1BaWNz-aiCSIZAGQd-LC4A',
+    authDomain: 'peru-turismo-go.firebaseapp.com',
+    projectId: 'peru-turismo-go',
+    appId: '1:523565304895:web:379bc88a87173ae7373c8a'
 });
 
 export const FIREBASE_CONFIGURED =
